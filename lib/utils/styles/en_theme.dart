@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 ThemeData get enTheme => ThemeData(
     scaffoldBackgroundColor: Colors.white,
-    textTheme: const TextTheme(
-        headlineLarge: TextStyle(
+    textTheme: TextTheme(
+        headlineLarge: GoogleFonts.inter(
           fontWeight: FontWeight.bold,
           color: Colors.black,
+          fontSize: 36
         ),
-        headlineMedium: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
+        headlineMedium: GoogleFonts.inter(
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+            fontSize: 32
         ),
-        headlineSmall: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
+        headlineSmall: GoogleFonts.inter(
+            fontWeight: FontWeight.w500,
+            color: Colors.black,
+            fontSize: 28
         ),
-        titleLarge: TextStyle(
-          fontWeight: FontWeight.w700,
-          color: Colors.white,
+        titleLarge: GoogleFonts.inter(
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+            fontSize: 22
         ),
-        titleMedium: TextStyle(
-          fontWeight: FontWeight.w500,
-          color: Colors.black,
+        titleMedium: GoogleFonts.inter(
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+            fontSize: 18
         ),
-        titleSmall: TextStyle(
-          fontWeight: FontWeight.normal,
-          color: Colors.black,
+        titleSmall: GoogleFonts.inter(
+            fontWeight: FontWeight.w400,
+            color: AppColors.kGreyTextColor,
+            fontSize: 14
         ),
     ),
     appBarTheme: const AppBarTheme(

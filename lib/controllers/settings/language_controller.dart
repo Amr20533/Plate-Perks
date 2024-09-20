@@ -17,6 +17,7 @@ class LanguageController extends GetxController{
 
   @override
   void onInit() {
+
     // String? sharedLang = appServices.sharedPreferences.getString("lang");
     // if(sharedLang == "ar"){
     //   language =  const Locale("ar");

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/main_page_controller.dart';
+import 'package:plate_perks/controllers/starter/main_page_controller.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/restaurant_controller.dart';
+import 'package:plate_perks/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/controllers/settings/language_controller.dart';
 import 'package:plate_perks/services/init_herlper.dart';
 import 'package:plate_perks/utils/static/app_translations.dart';

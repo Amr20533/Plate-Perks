@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/restaurant_controller.dart';
+import 'package:plate_perks/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 
@@ -12,6 +12,10 @@ class StarterPoint extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text('${"4".tr} Amr Elnemr', style: Theme.of(context).textTheme.titleLarge,),
+
+
+
         GetBuilder<RestaurantController>(builder: (controller){
           return SizedBox(
             height: AppDimensions.getHeight(255),
@@ -50,7 +54,7 @@ class StarterPoint extends StatelessWidget {
                       Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(controller.restaurant[index].name, style: Theme.of(context).textTheme.titleMedium,),
-                          Text(controller.restaurant[index].city, style: Theme.of(context).textTheme.titleMedium,),
+                          Text(controller.restaurant[index].city, style: Theme.of(context).textTheme.titleSmall,),
                         ],
                       ),
                     ],
