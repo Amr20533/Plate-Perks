@@ -43,7 +43,7 @@ class _RecentViewState extends State<RecentView> with SingleTickerProviderStateM
             ]),
           ),
           SizedBox(
-              height: AppDimensions.screenHeight,
+              height: AppDimensions.screenHeight * 0.72,
               child: TabBarView(
                   controller: tabController,
                   children: List.generate(2, (index) => const RecentDataCard())))

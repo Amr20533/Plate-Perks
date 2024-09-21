@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plate_perks/controllers/starter/food_controller.dart';
 import 'package:plate_perks/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/controllers/settings/language_controller.dart';
 import 'package:plate_perks/services/init_herlper.dart';
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<RestaurantController>().getAllRestaurantData();
+    Get.find<FoodController>().getAllFoodData();
     final lController = Get.find<LanguageController>();
     return GetMaterialApp(
-      locale: lController.language,
+      locale: lController.changeLanguage("tr"),
       debugShowCheckedModeBanner: false,
       translations: AppTranslation(),
       title: 'Plate Perks',

@@ -5,7 +5,25 @@ class AppColors{
   static const Color kRedColor = Color(0xFFE70847);
   // static const Color kGreyTextColor = Color(0xFF586473);
   static const Color kGreyColor = Color(0xFFB3B3B3);
+  static Color kLightBlackColor = const Color(0xFF000000).withOpacity(0.71);
+  static const Color kYellowColor = Color(0xFFF0C324);
   static const Color kLightGreyColor = Color(0xFFF3F1F1);
   static const Color kGreyTextColor = Color(0xFF6F6F6F);
+  static const MaterialColor whiteMaterialColor = MaterialColor(
+    0xFFFFFFFF, // The primary color value (white)
+    <int, Color>{
+      50: Color(0xFFFFFFFF), // 10%
+      100: Color(0xFFFFFFFF), // 20%
+      200: Color(0xFFFFFFFF), // 30%
+      300: Color(0xFFFFFFFF), // 40%
+      400: Color(0xFFFFFFFF), // 50%
+      500: Color(0xFFFFFFFF), // 60%
+      600: Color(0xFFFFFFFF), // 70%
+      700: Color(0xFFFFFFFF), // 80%
+      800: Color(0xFFFFFFFF), // 90%
+      900: Color(0xFFFFFFFF), // 100%
+    },
+  );
+  static const double kDefaultPadding = 20;
 
 }

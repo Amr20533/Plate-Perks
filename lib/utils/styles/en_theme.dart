@@ -4,6 +4,8 @@ import 'package:plate_perks/utils/styles/app_colors.dart';
 
 ThemeData get enTheme => ThemeData(
     scaffoldBackgroundColor: Colors.white,
+    primaryColor: Colors.white,
+    primarySwatch: AppColors.whiteMaterialColor,
     textTheme: TextTheme(
         headlineLarge: GoogleFonts.inter(
           fontWeight: FontWeight.bold,
@@ -16,9 +18,9 @@ ThemeData get enTheme => ThemeData(
             fontSize: 32
         ),
         headlineSmall: GoogleFonts.inter(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w700,
             color: Colors.black,
-            fontSize: 28
+            fontSize: 26
         ),
         titleLarge: GoogleFonts.inter(
             fontWeight: FontWeight.w700,
