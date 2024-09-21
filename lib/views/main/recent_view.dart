@@ -36,10 +36,13 @@ class _RecentViewState extends State<RecentView> with SingleTickerProviderStateM
               dividerHeight: 0.3,
               indicatorColor: AppColors.kPrimaryColor,
               indicatorSize: TabBarIndicatorSize.tab,
+              labelStyle: Theme.of(context).textTheme.titleMedium,
+              labelColor: AppColors.kPrimaryColor,
+              unselectedLabelColor: AppColors.kGreyColor,
               indicatorWeight: 3,
               tabs: [
-              Text("new".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: tabController.index == 0 ? AppColors.kPrimaryColor : AppColors.kGreyColor),),
-              Text("old".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: tabController.index == 1 ? AppColors.kPrimaryColor : AppColors.kGreyColor),),
+              Text("new".tr, ),
+              Text("old".tr,),
             ]),
           ),
           SizedBox(

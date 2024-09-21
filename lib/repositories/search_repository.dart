@@ -6,8 +6,12 @@ class SearchRepo extends GetxService{
   final ApiHelper apiHelper;
   SearchRepo({required this.apiHelper});
 
-  Future<Response> getRestaurantData()async{
-    return await apiHelper.getData(AppEndPoint.getAllRestaurant);
+  // Future<Response> getRestaurantData()async{
+  //   return await apiHelper.getData(AppEndPoint.getAllRestaurant);
+  // }
+
+  Future<Response> searchForFood(String search) async{
+    return await apiHelper.getData('${AppEndPoint.getAllFoodData}?search= $search');
   }
 
 

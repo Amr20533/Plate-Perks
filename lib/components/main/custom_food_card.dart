@@ -16,7 +16,7 @@ class CustomFoodCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppDimensions.getHeight(250),
+      height: AppDimensions.getHeight(270),
       width: AppDimensions.getWidth(180),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),

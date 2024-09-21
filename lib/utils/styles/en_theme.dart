@@ -38,13 +38,15 @@ ThemeData get enTheme => ThemeData(
             fontSize: 14
         ),
     ),
-    appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.kPrimaryColor,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.white,
       elevation: 0,
-      titleTextStyle: TextStyle(
-        color: Colors.white,
-
-      )
+      scrolledUnderElevation: 0,
+      titleTextStyle: GoogleFonts.inter(
+          fontWeight: FontWeight.w700,
+          color: Colors.black,
+          fontSize: 22
+      ),
     ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: AppColors.kPrimaryColor,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plate_perks/repositories/restaurant_repository.dart';
 import 'package:plate_perks/views/main/recent_view.dart';
+import 'package:plate_perks/views/main/search_view.dart';
 import 'package:plate_perks/views/main/starter_point.dart';
 
 class MainPageController extends GetxController{
@@ -13,7 +14,7 @@ class MainPageController extends GetxController{
 
   List<Widget> screens = [
     const StarterPoint(),
-    const Center(child: Text('Screen')),
+    const SearchView(),
     const RecentView(),
     const Center(child: Text('Screen'),),
 

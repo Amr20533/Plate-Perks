@@ -10,6 +10,7 @@ import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/repositories/food_repositories.dart';
 import 'package:plate_perks/repositories/recent_repository.dart';
 import 'package:plate_perks/repositories/restaurant_repository.dart';
+import 'package:plate_perks/repositories/search_repository.dart';
 
 import 'app_services.dart';
 
@@ -33,6 +34,9 @@ initHelper()async{
   Get.lazyPut(()=>RecentRepo(
     apiHelper: Get.find(),
   ));
+  Get.lazyPut(()=>SearchRepo(
+    apiHelper: Get.find(),
+  ));
 
 
 
@@ -42,7 +46,9 @@ initHelper()async{
 
   Get.lazyPut(() => FoodController(foodRepo: Get.find()));
   Get.lazyPut(() => RecentController(recentRepo: Get.find()));
-  Get.lazyPut(() => SearchController());
+  Get.lazyPut(() => SearchPageController(
+    searchRepo: Get.find()
+  ));
 
 
 
