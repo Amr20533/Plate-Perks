@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:plate_perks/controllers/features/cart_controller.dart';
 import 'package:plate_perks/controllers/starter/food_controller.dart';
 import 'package:plate_perks/controllers/starter/main_page_controller.dart';
 import 'package:plate_perks/controllers/starter/recent_controller.dart';
@@ -49,6 +50,7 @@ initHelper()async{
   Get.lazyPut(() => SearchPageController(
     searchRepo: Get.find()
   ));
+  Get.lazyPut(() => CartController());
 
 
 

@@ -117,8 +117,8 @@ class AppTranslation extends Translations{
       "38": "successfully registered",
       "39": "Or Sign in with",
       "40": "Create Account",
-      "41": "Fill your information below or register with your social account.",
-      "42": "Or sign up with",
+      "41": "",
+      "42": "",
       "43": "Verify",
       "44": "Your new password must be different\n\tfrom previously used passwords.",
       "45": "Re Enter your password",
@@ -141,6 +141,8 @@ class AppTranslation extends Translations{
       "done": "Done",
       "cancel": "Cancel",
       "combo": "COMBO DEAL",
+      "restaurant" : "Restaurants",
+      "food" : "Foods",
       "super-family": "SUPER FAMILY",
       "min-people": "*Minimum 6 people",
       "super-deal": "SUPER DEAL DATE",
@@ -162,6 +164,10 @@ class AppTranslation extends Translations{
       "privacy-policy" : "Privacy Policy",
       "news-services" : "News & Services",
       "contact-us" : "Contact Us",
+      "empty" : "Well, there is no food you are looking for :(",
+      "other-food" : "Find Other Food",
+      "other-table" : "Find Other Table",
+      "place-order" : "Place Order",
 
     },
     "du": {
@@ -307,6 +313,7 @@ class AppTranslation extends Translations{
       "until-month": "*23 Eylül'e kadar",
       "off": "İNDİRİM",
       "restaurant" : "Restoranlar",
+      "food" : "Yiyecekler",
       "popular-food" : "Popüler Yiyecekler",
       "see-all" : "Tümünü Gör",
       "popular-search" : "Popüler Arama",
@@ -324,6 +331,11 @@ class AppTranslation extends Translations{
       "privacy-policy" : "Gizlilik Politikası",
       "news-services" : "Haberler ve Hizmetler",
       "contact-us" : "Bize Ulaşın",
+      "empty" : "Aradığınız yiyecek bulunamadı :(",
+      "other-food" : "Başka Yiyecekler Bul",
+      "other-table" : "Diğer Tabloyu Bul",
+      "place-order" : "Sipariş Ver",
+
 
     }
 

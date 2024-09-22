@@ -11,6 +11,7 @@ import 'package:plate_perks/components/main/custom_food_card.dart';
 import 'package:plate_perks/components/main/custom_restaurant_card.dart';
 import 'package:plate_perks/components/main/custom_see_all_bar.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/class/bottom_sheet_handler.dart';
 import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
@@ -94,15 +95,21 @@ class StarterPoint extends StatelessWidget {
 
           GetBuilder<FoodController>(builder: (controller){
             return Container(
-              height: AppDimensions.getHeight(268),
+              height: AppDimensions.getHeight(280),
+              color: Colors.transparent,
               margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
               child: ListView.separated(
                   itemCount: controller.food.length,
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (context, index) => CustomFoodCard(foodModel: controller.food[index],
-                      image: '${AppEndPoint.server}${controller.food[index].images[index].image}'),
+                  itemBuilder: (context, index) =>  GestureDetector(
+                    onTap: (){
+                      BottomSheetHandler().foodBottomSheet(foodData: controller.food[index]);
+                    },
+                    child: CustomFoodCard(foodModel: controller.food[index],
+                        image: '${AppEndPoint.server}${controller.food[index].images[0].image}'),
+                  ),
                   separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
             );
           }),
