@@ -5,11 +5,13 @@ class AppDimensions{
   static double screenHeight = Get.height;
 
   static double getWidth(double pixels){
-    return (pixels * screenWidth)/ screenWidth;
+    double designWidth = 400;
+    return (pixels * screenWidth)/ designWidth;
   }
 
   static double getHeight(double pixels){
-    return (pixels * screenHeight) / screenHeight;
+    double designHeight = 820;
+    return (pixels * screenHeight) / designHeight;
   }
 
 }

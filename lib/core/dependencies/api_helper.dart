@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:plate_perks/end_point.dart';
 
@@ -29,13 +32,21 @@ class ApiHelper extends GetConnect implements GetxService{
     }
   }
   Future<Response> postData(String uri,dynamic body)async{
-    try{
-      Response response = await post(uri, body,headers: _mainHeader);
-      print(response.toString());
+    try {
+      Response response = await post(
+        uri,
+        body is String ? jsonDecode(body) : body, // Decode if it's a JSON string
+        headers: _mainHeader,
+      );
+
+      debugPrint(response.toString());
       return response;
-    }catch(e){
-      print(e.toString());
-      return Response(statusCode: 1 , statusText: e.toString());
+    } catch (e) {
+      debugPrint(e.toString());
+      return Response(
+        statusCode: 500,
+        statusText: e.toString(),
+      );
     }
   }
 }

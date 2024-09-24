@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/starter/food_controller.dart';
-import 'package:plate_perks/controllers/starter/restaurant_controller.dart';
-import 'package:plate_perks/controllers/settings/language_controller.dart';
-import 'package:plate_perks/services/init_herlper.dart';
+import 'package:plate_perks/core/controllers/starter/food_controller.dart';
+import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
+import 'package:plate_perks/core/controllers/settings/language_controller.dart';
+import 'package:plate_perks/core/services/init_herlper.dart';
 import 'package:plate_perks/utils/static/app_translations.dart';
 import 'package:plate_perks/utils/static/pages.dart';
 import 'package:plate_perks/utils/styles/en_theme.dart';
-import 'package:plate_perks/views/main/main_page.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       translations: AppTranslation(),
       title: 'Plate Perks',
       theme: enTheme,
-      // home: const MainPage(),
+      // home: const OnBoardingScreen(),
       getPages: pages,
     );
   }

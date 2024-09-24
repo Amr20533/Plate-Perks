@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:plate_perks/models/restaurant_model.dart';
-import 'package:plate_perks/repositories/restaurant_repository.dart';
+import 'package:plate_perks/core/repositories/restaurant_repository.dart';
 
 class RestaurantController extends GetxController{
   final RestaurantRepo restaurantRepo;

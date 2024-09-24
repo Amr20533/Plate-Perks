@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/starter/recent_controller.dart';
+import 'package:plate_perks/core/controllers/starter/recent_controller.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 

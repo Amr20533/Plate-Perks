@@ -6,7 +6,7 @@ import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 import 'package:svg_flutter/svg.dart';
-import 'package:plate_perks/controllers/starter/search_controller.dart';
+import 'package:plate_perks/core/controllers/starter/search_controller.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});

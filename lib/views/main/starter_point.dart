@@ -1,9 +1,7 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/starter/food_controller.dart';
-import 'package:plate_perks/controllers/starter/main_page_controller.dart';
-import 'package:plate_perks/controllers/starter/restaurant_controller.dart';
+import 'package:plate_perks/core/controllers/starter/food_controller.dart';
+import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/components/main/custom_carousal_slider.dart';
 import 'package:plate_perks/components/main/custom_dot_indicator.dart';
@@ -12,7 +10,6 @@ import 'package:plate_perks/components/main/custom_restaurant_card.dart';
 import 'package:plate_perks/components/main/custom_see_all_bar.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/class/bottom_sheet_handler.dart';
-import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class StarterPoint extends StatelessWidget {
@@ -107,7 +104,11 @@ class StarterPoint extends StatelessWidget {
                     onTap: (){
                       BottomSheetHandler().foodBottomSheet(foodData: controller.food[index]);
                     },
-                    child: CustomFoodCard(foodModel: controller.food[index],
+                    child: CustomFoodCard(
+                        favTap: (){
+
+                        },
+                        foodModel: controller.food[index],
                         image: '${AppEndPoint.server}${controller.food[index].images[0].image}'),
                   ),
                   separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
@@ -116,7 +117,25 @@ class StarterPoint extends StatelessWidget {
 
           SizedBox(height: AppDimensions.getHeight(20),),
 
-
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //       children: List.generate(6, (index) => Container(
+          //         height: AppDimensions.getHeight(274),
+          //         width: AppDimensions.getWidth(182),
+          //         decoration: BoxDecoration(
+          //             borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
+          //             color: Colors.white,
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Colors.black.withOpacity(0.12),
+          //                   blurRadius: 10,
+          //                   offset: const Offset(0, -1)
+          //               )
+          //             ]
+          //         ),),)
+          //   ),
+          // ),
 
         ],
       ),

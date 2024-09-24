@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:plate_perks/models/restaurant_model.dart';
-import 'package:plate_perks/repositories/recent_repository.dart';
-import 'package:plate_perks/repositories/restaurant_repository.dart';
+import 'package:plate_perks/core/repositories/recent_repository.dart';
 
 class RecentController extends GetxController{
   final RecentRepo recentRepo;

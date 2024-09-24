@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 
 class CustomFoodCard extends StatelessWidget {
   const CustomFoodCard({
+    required this.favTap,
     required this.foodModel,
     required this.image,
     super.key,
   });
   final FoodData foodModel;
   final String image;
+  final VoidCallback favTap;
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +35,34 @@ class CustomFoodCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: AppDimensions.getWidth(170),
-            width: AppDimensions.getWidth(180),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
-                // color: Colors.white,
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(image))
-            ),
+          Stack(alignment: Alignment.topRight,
+            children: [
+              Container(
+                height: AppDimensions.getWidth(170),
+                width: AppDimensions.getWidth(180),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
+                    // color: Colors.white,
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(image))
+                ),
+              ),
+              InkWell(
+                onTap: favTap,
+                child: Container(
+                  width: AppDimensions.getWidth(30),
+                  height: AppDimensions.getWidth(30),
+                  decoration: BoxDecoration(
+                      color: AppColors.kLightGreyColor,
+                      // color: AppColors.kPrimaryColor,
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(AppDimensions.getWidth(12)), bottomLeft: Radius.circular(AppDimensions.getWidth(12))),
+                  ),
+                  child: Icon(Icons.favorite_border, color: AppColors.kGreyColor, size: 22,),
+                ),
+              )
+
+            ],
           ),
           Padding(
             padding: EdgeInsets.only(left: AppDimensions.getWidth(16)),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/controllers/starter/main_page_controller.dart';
+import 'package:plate_perks/core/controllers/starter/main_page_controller.dart';
 import 'package:plate_perks/components/main/bottom_nav_icon.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/static/app_assets.dart';

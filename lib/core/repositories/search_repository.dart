@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:plate_perks/dependencies/api_helper.dart';
+import 'package:plate_perks/core/dependencies/api_helper.dart';
 import 'package:plate_perks/end_point.dart';
 
 class SearchRepo extends GetxService{

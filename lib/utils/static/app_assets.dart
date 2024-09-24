@@ -10,6 +10,9 @@ class AppAssets{
   static const String ellipse = '$imagePath/Ellipse 9.png';
   static const String empty = '$imagePath/empty.png';
 
+  /// ********************************** Splash Screen Icons *******************************************
+  static const String circles = '$imagePath/circles.png';
+  static const String dots = '$imagePath/dots.png';
 
   static const String home = '$navBarPath/home.svg';
   static const String profile = '$navBarPath/profile.svg';

@@ -5,7 +5,14 @@ class AppEndPoint{
   static const String getAllFoodData = '/api/v1/getAllFoodData';
   static const String getFoodDataById = '/api/v1/getFoodDataById';
 
-  static const String userToken = 'Amr Elnemr';
+  /// Authentication End Points
+  static const String login = '/api/v1/login';
+  static const String signup = '/api/v1/register/';
+  static const String getMe = '/api/v1/getMe/';
+  static const String updateMe = '/api/v1/updateMe/';
+  static const String deleteMe = '/api/v1/deleteMe';
+
+  static const String userToken = 'user-token';
 
 
 

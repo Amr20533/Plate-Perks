@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:plate_perks/models/restaurant_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class CustomRestaurantCard extends StatelessWidget {
@@ -36,7 +37,7 @@ class CustomRestaurantCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: AppDimensions.getWidth(200),
+                height: AppDimensions.getWidth(190),
                 width: AppDimensions.getWidth(170),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
@@ -46,14 +47,22 @@ class CustomRestaurantCard extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: AppDimensions.getWidth(16)),
+                padding: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(16),vertical: AppDimensions.getWidth(8), ),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(restaurantData.name, style: Theme.of(context).textTheme.titleMedium,),
-                    Text(restaurantData.city, style: Theme.of(context).textTheme.titleSmall,),
+                    SizedBox(width: AppDimensions.getWidth(7),),
+                    Row(
+                      children: [
+                        Image.asset(AppAssets.locationPin, width: 15,height: 15,),
+                        SizedBox(width: AppDimensions.getWidth(5),),
+                        Text(restaurantData.city, style: Theme.of(context).textTheme.titleSmall,),
+                      ],
+                    ),
                   ],
                 ),
               ),
+
             ],
           ),
         ),

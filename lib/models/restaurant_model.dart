@@ -17,7 +17,7 @@ class RestaurantData {
   final List<Table> table;
   final List<dynamic> favorite;
   final List<dynamic> review;
-  final List<Image> images;
+  final List<RestaurantImage> images;
   final String name;
   final String address;
   final String city;
@@ -63,7 +63,7 @@ class RestaurantData {
       table: List<Table>.from(json['table'].map((item) => Table.fromJson(item))),
       favorite: json['favorite'] ?? [],
       review: json['review'] ?? [],
-      images: List<Image>.from(json['images'].map((item) => Image.fromJson(item))),
+      images: List<RestaurantImage>.from(json['images'].map((item) => RestaurantImage.fromJson(item))),
       name: json['name'],
       address: json['address'],
       city: json['city'],
@@ -112,19 +112,19 @@ class Table {
   }
 }
 
-class Image {
+class RestaurantImage {
   final int id;
   final String image;
   final int restaurant;
 
-  Image({
+  RestaurantImage({
     required this.id,
     required this.image,
     required this.restaurant,
   });
 
-  factory Image.fromJson(Map<String, dynamic> json) {
-    return Image(
+  factory RestaurantImage.fromJson(Map<String, dynamic> json) {
+    return RestaurantImage(
       id: json['id'],
       image: json['image'],
       restaurant: json['restaurant'],

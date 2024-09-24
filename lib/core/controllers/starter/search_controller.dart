@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/models/restaurant_model.dart';
-import 'package:plate_perks/repositories/search_repository.dart';
+import 'package:plate_perks/core/repositories/search_repository.dart';
 import 'package:plate_perks/utils/static/routes.dart';
 
 class SearchPageController extends GetxController{

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plate_perks/components/default/custom_rounded_button.dart';
 import 'package:plate_perks/components/features/cart_counter.dart';
-import 'package:plate_perks/controllers/features/cart_controller.dart';
+import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
