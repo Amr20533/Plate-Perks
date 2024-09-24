@@ -17,10 +17,10 @@ List<GetPage<dynamic>> pages = [
     return const OnBoardingScreen();
   },
       // middlewares: [
-      //   AuthMiddleware(),
       // ],
       transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
-  GetPage(name: AppRoutes.main, page: () => const MainPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(name: AppRoutes.main, page: () => const MainPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  ),
   GetPage(name: AppRoutes.search, page: () => const SearchScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.login, page: () => const LoginScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
     middlewares: [

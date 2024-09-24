@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:plate_perks/components/features/favorites/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/auth/forgot_password_controller.dart';
 import 'package:plate_perks/core/controllers/auth/login_controller.dart';
 import 'package:plate_perks/core/controllers/auth/sign_up_controller.dart';
@@ -12,6 +13,7 @@ import 'package:plate_perks/core/controllers/settings/language_controller.dart';
 import 'package:plate_perks/core/controllers/starter/search_controller.dart';
 import 'package:plate_perks/core/dependencies/api_helper.dart';
 import 'package:plate_perks/core/repositories/auth/login_repository.dart';
+import 'package:plate_perks/core/repositories/features/favorite_repo.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/core/repositories/food_repositories.dart';
 import 'package:plate_perks/core/repositories/recent_repository.dart';
@@ -48,6 +50,10 @@ initHelper()async{
     apiHelper: Get.find(),
   ));
 
+  Get.lazyPut(()=> FavoriteRepo(
+    apiHelper: Get.find(),
+  ));
+
 
 
   Get.lazyPut(() => RestaurantController(
@@ -68,6 +74,12 @@ initHelper()async{
   Get.lazyPut(() => LoginController(loginRepo: Get.find(), appServices: Get.find(), ));
   Get.lazyPut(() => ForgotPasswordController());
   Get.lazyPut(() => VerifyCodeController());
+
+
+
+  /// ************************** Feature Controllers *************************
+  Get.lazyPut(() => FavoriteController(appServices: Get.find(), favoriteRepo: Get.find()));
+
 
 
 

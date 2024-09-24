@@ -6,6 +6,7 @@ import 'package:plate_perks/components/default/custom_rounded_button.dart';
 import 'package:plate_perks/core/controllers/auth/login_controller.dart';
 import 'package:plate_perks/models/auth/login_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/static/routes.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -104,6 +105,7 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
                             password: login.password.text
                         );
                         login.userLogin(loginModel).then((response) {
+                          Get.toNamed(AppRoutes.main);
                           debugPrint('${response.access}');
                         }).catchError((error) {
                           debugPrint('Login failed: $error');

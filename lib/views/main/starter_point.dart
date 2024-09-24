@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plate_perks/components/features/favorites/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/end_point.dart';
@@ -17,6 +18,8 @@ class StarterPoint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<FavoriteController>().getFavorites();
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       physics: const BouncingScrollPhysics(),
@@ -32,7 +35,7 @@ class StarterPoint extends StatelessWidget {
                   children: [
                     Text('${"4".tr} Amr', style: Theme.of(context).textTheme.titleLarge,),
                     SizedBox(height: AppDimensions.getHeight(3),),
-                    Text("5".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 14),),
+                    Text("8".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 14),),
                   ],
                 ),
                 const Stack(
@@ -100,7 +103,10 @@ class StarterPoint extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (context, index) =>  GestureDetector(
+                  itemBuilder: (context, index) {
+
+
+                    return GestureDetector(
                     onTap: (){
                       BottomSheetHandler().foodBottomSheet(foodData: controller.food[index]);
                     },
@@ -108,9 +114,11 @@ class StarterPoint extends StatelessWidget {
                         favTap: (){
 
                         },
+                        favFood: getFavItem(controller: controller) == controller.food[index].id ? true : false,
                         foodModel: controller.food[index],
                         image: '${AppEndPoint.server}${controller.food[index].images[0].image}'),
-                  ),
+                  );
+                  },
                   separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
             );
           }),
@@ -140,6 +148,23 @@ class StarterPoint extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  int getFavItem({required FoodController controller}) {
+    for (int index = 0; index < controller.food.length; index++) {
+      int foodId = controller.food[index].id; // Get the food ID
+
+      // Check if there are any favorites for the current food item
+      bool isFavorite = controller.food[index].favorites.any((fav) => fav.food == foodId);
+
+      if (isFavorite) {
+        debugPrint("Fav Item: ${controller.food[index].favorites.first.food}"); // Print the first favorite food ID
+        return foodId; // Return the food ID of the first favorite found
+      }
+    }
+
+    debugPrint("No Fav Item!!");
+    return -1;
   }
 }
 

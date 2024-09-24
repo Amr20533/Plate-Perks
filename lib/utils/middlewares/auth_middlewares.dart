@@ -9,19 +9,16 @@ class AuthMiddleware extends GetMiddleware {
   RouteSettings? redirect(String? route) {
     bool isAuthenticated = checkUserAuthentication();
 
-    if (!isAuthenticated) {
-      return const RouteSettings(name: AppRoutes.login);
-    }else{
+    if (isAuthenticated ) {
       return const RouteSettings(name: AppRoutes.main);
     }
+    return null;
   }
 
   bool checkUserAuthentication() {
     AppServices appServices = Get.find();
-    if (appServices.getStorage.read(AppEndPoint.userToken).toString().isNotEmpty) {
-      return true;
-    } else {
-      return false;
-    }
+    // Check if the user token exists and is valid
+    return appServices.getStorage.read(AppEndPoint.userToken) != null;
   }
 }
+

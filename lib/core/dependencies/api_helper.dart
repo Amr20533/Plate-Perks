@@ -31,11 +31,21 @@ class ApiHelper extends GetConnect implements GetxService{
       return Response(statusCode: 1,statusText: e.toString());
     }
   }
+
+  Future<Response> getAuthData(String uri)async{
+    try{
+      Response response=await get(uri, headers: _mainHeader);
+      return response;
+    }catch(e){
+      return Response(statusCode: 1,statusText: e.toString());
+    }
+  }
+
   Future<Response> postData(String uri,dynamic body)async{
     try {
       Response response = await post(
         uri,
-        body is String ? jsonDecode(body) : body, // Decode if it's a JSON string
+        body is String ? jsonDecode(body) : body,
         headers: _mainHeader,
       );
 

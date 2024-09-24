@@ -10,10 +10,12 @@ class CustomFoodCard extends StatelessWidget {
     required this.favTap,
     required this.foodModel,
     required this.image,
+    this.favFood = false,
     super.key,
   });
   final FoodData foodModel;
   final String image;
+  final bool favFood;
   final VoidCallback favTap;
 
   @override
@@ -54,11 +56,10 @@ class CustomFoodCard extends StatelessWidget {
                   width: AppDimensions.getWidth(30),
                   height: AppDimensions.getWidth(30),
                   decoration: BoxDecoration(
-                      color: AppColors.kLightGreyColor,
-                      // color: AppColors.kPrimaryColor,
+                      color: favFood ? AppColors.kPrimaryColor : AppColors.kLightGreyColor,
                     borderRadius: BorderRadius.only(topRight: Radius.circular(AppDimensions.getWidth(12)), bottomLeft: Radius.circular(AppDimensions.getWidth(12))),
                   ),
-                  child: Icon(Icons.favorite_border, color: AppColors.kGreyColor, size: 22,),
+                  child: Icon(Icons.favorite_border, color: favFood ? Colors.white : AppColors.kGreyColor, size: 22,),
                 ),
               )
 

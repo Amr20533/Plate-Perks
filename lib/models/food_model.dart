@@ -1,3 +1,5 @@
+import 'package:plate_perks/models/Favorites/responses/favorite_response_model.dart';
+
 class FoodModel{
   final List<FoodData> data;
 
@@ -19,7 +21,7 @@ class FoodData {
   final List<Review> reviews;
   final List<ImageModel> images;
   final List<dynamic> cart;
-  final List<dynamic> favorites;
+  final List<FavoriteItem> favorites;
   final String name;
   final String description;
   final String price;
@@ -71,7 +73,9 @@ class FoodData {
           .map((image) => ImageModel.fromJson(image))
           .toList(),
       cart: json['cart'] ?? [],
-      favorites: json['favorites'] ?? [],
+      favorites: List<FavoriteItem>.from(
+          json['favorites'].map((favorite) => FavoriteItem.fromJson(favorite))
+      ),
       name: json['name'],
       description: json['description'],
       price: json['price'],
