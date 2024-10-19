@@ -41,7 +41,7 @@ dependencies:
   intl:
   google_fonts:
   svg_flutter:
-
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:

@@ -21,26 +21,26 @@ class FavoriteResponseModel {
 }
 class FavoriteItem {
   int id;
-  bool isFavorite;
-  String createdAt;
-  int food;
-  int user;
+  bool? isFavorite;
+  String? createdAt;
+  int? food;
+  int? user;
 
   FavoriteItem({
     required this.id,
-    required this.isFavorite,
-    required this.createdAt,
-    required this.food,
-    required this.user,
+    this.isFavorite,
+    this.createdAt,
+    this.food,
+    this.user,
   });
 
   factory FavoriteItem.fromJson(Map<String, dynamic> json) {
     return FavoriteItem(
       id: json['id'],
-      isFavorite: json['is_favorite'],
-      createdAt: json['created_at'],
-      food: json['food'],
-      user: json['user'],
+      isFavorite: json['is_favorite'] ?? false,
+      createdAt: json['created_at'] ?? '',
+      food: json['food'] ?? 0,
+      user: json['user'] ?? 0,
     );
   }
 

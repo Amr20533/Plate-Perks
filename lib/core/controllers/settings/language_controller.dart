@@ -9,7 +9,7 @@ class LanguageController extends GetxController{
   changeLanguage(String newLang){
     Locale locale = Locale(newLang);
     // appServices.sharedPreferences.setString("lang", newLang);
-    Get.updateLocale(locale);
+    // Get.updateLocale(locale);
     // appTheme = newLang == 'ar' ? aTheme : eTheme;
     // Get.changeTheme(appTheme);
     Get.updateLocale(locale);

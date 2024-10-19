@@ -9,23 +9,31 @@ class AppAssets{
   static const String comboDeal = '$imagePath/combo deal.png';
   static const String ellipse = '$imagePath/Ellipse 9.png';
   static const String empty = '$imagePath/empty.png';
+  static const String locationPin = '$iconPath/location-pin.png';
 
   /// ********************************** Splash Screen Icons *******************************************
   static const String circles = '$imagePath/circles.png';
   static const String dots = '$imagePath/dots.png';
 
+  /// ********************************** NavBar *******************************************
   static const String home = '$navBarPath/home.svg';
   static const String profile = '$navBarPath/profile.svg';
   static const String recent = '$navBarPath/recent.svg';
   static const String search = '$navBarPath/search.svg';
 
-  static const String cart = '$iconPath/cart.png';
+  /// ********************************** Profile *******************************************
+  static const String cart = '$iconPath/cart.svg';
   static const String edit = '$iconPath/edit.png';
-  static const String info = '$iconPath/info.png';
-  static const String language = '$iconPath/language.png';
-  static const String locationPin = '$iconPath/location-pin.png';
-  static const String newspaper = '$iconPath/newspaper.png';
-  static const String notification = '$iconPath/notification.png';
-  static const String shield = '$iconPath/sheild.png';
+  static const String info = '$iconPath/info.svg';
+  static const String language = '$iconPath/language.svg';
+  static const String star = '$iconPath/star.svg';
+  static const String favorite = '$iconPath/favorite.svg';
+  static const String newspaper = '$iconPath/newspaper.svg';
+  static const String notification = '$iconPath/notification.svg';
+  static const String dartMode = '$iconPath/dark-theme.svg';
+  static const String shield = '$iconPath/sheild.svg';
+
+/// ********************************** Cart *******************************************
+  static const String emptyCart = '$imagePath/empty_cart.svg';
 
 }

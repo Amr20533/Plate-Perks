@@ -16,6 +16,14 @@ class AppEndPoint{
   static const String addFoodToFavorite = '/api/v1/favorites/addFavoriteFood';
   static const String getFoodFromFavorite = '/api/v1/favorites/getFavoriteFood';
 
+  /// >>>>>>>>>>>>>>>>>>>>>>>>> Reviews End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  static const String addFoodReview = '/api/v1/reviews/addFoodReview';
+  static const String getFoodReviews = '/api/v1/reviews/getFoodReviews';
+
+ /// >>>>>>>>>>>>>>>>>>>>>>>>> Reviews End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  static const String addFoodToCart = '/api/v1/cart/userAddToCart';
+  static const String getFoodInCart = '/api/v1/cart/userGetAllCart';
+
   static const String userToken = 'user-token';
 
 

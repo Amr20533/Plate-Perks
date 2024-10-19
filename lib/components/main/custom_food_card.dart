@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
-import 'package:plate_perks/utils/static/app_assets.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 

@@ -9,6 +9,9 @@ class FoodRepo extends GetxService{
   Future<Response> getFoodData()async{
     return await apiHelper.getData(AppEndPoint.getAllFoodData);
   }
+  Future<Response> getFoodById(int id)async{
+    return await apiHelper.getData('${AppEndPoint.getFoodDataById}/$id');
+  }
 
 
 }

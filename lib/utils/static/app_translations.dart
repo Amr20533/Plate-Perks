@@ -173,7 +173,14 @@ class AppTranslation extends Translations{
       "empty": "Well, there is no food you are looking for :(",
       "other-food": "Find Other Food",
       "other-table": "Find Other Table",
-      "place-order": "Place Order"
+      "place-order": "Place Order",
+      "edit": "Edit",
+      "favorite": "Favorites",
+      "give-rating": "Give Rating",
+      "account-settings": "Account Settings",
+      "help": "Help & Report",
+      "empty_cart": "Well, there is no item in your cart :(",
+      "detail_cart": "Detail Cart",
     },
     "de": {
       "1": "Sprache",

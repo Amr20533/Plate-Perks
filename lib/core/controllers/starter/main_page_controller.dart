@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plate_perks/views/main/profile_view.dart';
 import 'package:plate_perks/views/main/recent_view.dart';
 import 'package:plate_perks/views/main/search_view.dart';
 import 'package:plate_perks/views/main/starter_point.dart';
@@ -15,7 +16,7 @@ class MainPageController extends GetxController{
     const StarterPoint(),
     const SearchView(),
     const RecentView(),
-    const Center(child: Text('Screen'),),
+    const ProfileView(),
 
   ];
 

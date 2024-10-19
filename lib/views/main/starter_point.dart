@@ -93,35 +93,43 @@ class StarterPoint extends StatelessWidget {
             text: 'popular-food'.tr,
           ),
 
-          GetBuilder<FoodController>(builder: (controller){
-            return Container(
-              height: AppDimensions.getHeight(280),
-              color: Colors.transparent,
-              margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
-              child: ListView.separated(
-                  itemCount: controller.food.length,
-                  scrollDirection: Axis.horizontal,
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
+          GetBuilder<FoodController>(
+              id: 'food_favorites',
+              builder: (controller){
+              return GetBuilder<FavoriteController>(
+                  id: 'food_favorites',
+                  init: Get.find<FavoriteController>(),
+                  builder: (favController){
+                    return Container(
+                    height: AppDimensions.getHeight(280),
+                    color: Colors.transparent,
+                    margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+                    child: ListView.separated(
+                        itemCount: controller.food.length,
+                        scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(),
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          bool isFavorite = favController.favoritesMap[controller.food[index].id.toString()] == true ? true : false;
 
-
-                    return GestureDetector(
-                    onTap: (){
-                      BottomSheetHandler().foodBottomSheet(foodData: controller.food[index]);
-                    },
-                    child: CustomFoodCard(
-                        favTap: (){
-
+                          return GestureDetector(
+                            onTap: (){
+                              BottomSheetHandler().foodBottomSheet(foodData: controller.food[index]);
+                            },
+                            child: CustomFoodCard(
+                                favTap: (){
+                                  favController.addFoodToFavorite(id: controller.food[index].id);
+                                },
+                                favFood: isFavorite,
+                                foodModel: controller.food[index],
+                                image: '${AppEndPoint.server}${controller.food[index].images[0].image}'),
+                          );
                         },
-                        favFood: getFavItem(controller: controller) == controller.food[index].id ? true : false,
-                        foodModel: controller.food[index],
-                        image: '${AppEndPoint.server}${controller.food[index].images[0].image}'),
+                        separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
                   );
-                  },
-                  separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
-            );
+              });
           }),
+
 
           SizedBox(height: AppDimensions.getHeight(20),),
 
