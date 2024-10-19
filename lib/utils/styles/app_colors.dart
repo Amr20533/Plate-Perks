@@ -4,6 +4,7 @@ class AppColors{
   static const Color kPrimaryColor = Color(0xFF008C8C);
   static const Color kRedColor = Color(0xFFE70847);
   static const Color kLightRedColor = Color(0xFFC34D33);
+  static const Color kSnackBarColor = Color(0xFF49516F);
   // static const Color kGreyTextColor = Color(0xFF586473);
   static const Color kGreyColor = Color(0xFFB3B3B3);
   static Color kLightBlackColor = const Color(0xFF000000).withOpacity(0.71);

@@ -7,25 +7,36 @@ class CustomRoundedButton extends StatelessWidget {
   const CustomRoundedButton({
     required this.onTap,
     required this.title,
+    this.padding = EdgeInsets.zero,
+    this.bgColor = AppColors.kPrimaryColor,
+    this.textColor = Colors.white,
+    this.width = 360,
+    this.height = 45,
     super.key,
   });
 
+  final double width;
+  final double height;
+  final EdgeInsetsGeometry padding;
   final String title;
   final VoidCallback onTap;
+  final Color bgColor;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: onTap,
         child: Container(
-          width: AppDimensions.getWidth(360),
-          height: AppDimensions.getWidth(45),
+          width: width,
+          height: height,
           alignment: Alignment.center,
+          padding: padding,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppDimensions.getWidth(8)),
-              color: AppColors.kPrimaryColor
+              color: bgColor
           ),
-          child: Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white),),
+          child: Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor),),
         ));
   }
 }
