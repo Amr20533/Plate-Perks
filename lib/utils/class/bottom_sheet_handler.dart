@@ -4,8 +4,10 @@ import 'package:plate_perks/components/default/custom_rounded_button.dart';
 import 'package:plate_perks/components/features/cart_counter.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/end_point.dart';
+import 'package:plate_perks/models/cart/cart_model.dart';
 import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/class/snackbar_handler.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class BottomSheetHandler{
@@ -83,17 +85,35 @@ class BottomSheetHandler{
                       const CartCounter()
                     ],
                   ),
-                  GetBuilder<CartController>(builder: (cart){
-                    return Padding(
-                      padding: EdgeInsets.symmetric(vertical: AppDimensions.getWidth(AppColors.kDefaultPadding)),
-                      child: Text('\$${(cart.count * double.parse(foodData.price)).round()}', style: Theme.of(Get.context!).textTheme.titleMedium,),
-                    );
+                  GetBuilder<CartController>(
+                      id: 'food_counter',
+
+                      builder: (cart){
+                      return Padding(
+                        padding: EdgeInsets.symmetric(vertical: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+                        child: Text('\$${(cart.count * double.parse(foodData.price)).round()}', style: Theme.of(Get.context!).textTheme.titleMedium,),
+                      );
                   }),
                   SizedBox(height: AppDimensions.getHeight(AppColors.kDefaultPadding * 1.5),),
-                  CustomRoundedButton(onTap: (){
-
-                  },
-                  title: 'place-order'.tr)
+                  GetBuilder<CartController>(
+                      id: 'food_cart',
+                      builder: (cart){
+                      return CustomRoundedButton(
+                          onTap: (){
+                            CartModel cartModel = CartModel(
+                                inCart: true,
+                                quantity: cart.count
+                            );
+                            try{
+                              cart.addFoodToCart(id: foodData.id, cartModel: cartModel);
+                              Get.back();
+                              SnackBarHandler().showCartSnackBar();
+                            }catch (error){
+                              debugPrint("Error while adding food to cart: $error");
+                            }
+                       },
+                          title: 'place-order'.tr);
+                    }),
                 ],
               ),
             ),

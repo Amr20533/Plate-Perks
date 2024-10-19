@@ -4,7 +4,8 @@ class CartResponseModel {
   CartResponseModel({required this.cart});
 
   factory CartResponseModel.fromJson(Map<String, dynamic> json) {
-    var itemsFromJson = json['cart'] as List;
+    var itemsFromJson = json['cart'] as List? ?? [];  // If null, default to an empty list
+
     List<CartData> cartItems = itemsFromJson.map((item) => CartData.fromJson(item)).toList();
 
     return CartResponseModel(cart: cartItems);
@@ -12,10 +13,11 @@ class CartResponseModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'items': cart.map((item) => item.toJson()).toList(),
+      'cart': cart.map((item) => item.toJson()).toList(),
     };
   }
 }
+
 
 class CartData {
   final int? food;

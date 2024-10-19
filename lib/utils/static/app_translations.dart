@@ -79,7 +79,7 @@ class AppTranslation extends Translations{
       "family": "عائلة",
       "account": "حساب",
       "more-info": "مزيد من المعلومات",
-      "my-cart": "مركز المساعدة",
+      "my-cart": "سلتي",
       "notification": "إشعار",
       "privacy-policy": "سياسة الخصوصية",
       "news-services": "الأخبار والخدمات",
@@ -87,7 +87,15 @@ class AppTranslation extends Translations{
       "empty": "حسنًا، لا يوجد طعام تبحث عنه :(",
       "other-food": "ابحث عن طعام آخر",
       "other-table": "ابحث عن طاولة أخرى",
-      "place-order": "تقديم الطلب"
+      "place-order": "تقديم الطلب",
+      "edit": "تعديل",
+      "favorite": "المفضلة",
+      "give-rating": "إعطاء تقييم",
+      "account-settings": "إعدادات الحساب",
+      "help": "المساعدة والتقرير",
+      "empty_cart": "عذرًا، لا يوجد أي عنصر في سلة التسوق الخاصة بك :(",
+      "detail_cart": "تفاصيل السلة",
+      "empty_favorite": "عذرًا، لا يوجد أي عنصر في المفضلة"
     },
     "en": {
       "1": "Language",
@@ -165,7 +173,7 @@ class AppTranslation extends Translations{
       "family": "Family",
       "account": "Account",
       "more-info": "More Info",
-      "my-cart": "Help Center",
+      "my-cart": "My Cart",
       "notification": "Notification",
       "privacy-policy": "Privacy Policy",
       "news-services": "News & Services",
@@ -182,6 +190,8 @@ class AppTranslation extends Translations{
       "empty_cart": "Well, there is no item in your cart :(",
       "detail_cart": "Detail Cart",
       "empty_favorite": "Well, there is no item in your Favorites",
+      "place_order": "Successfully place order",
+      "cart": "Cart",
     },
     "de": {
       "1": "Sprache",
@@ -259,7 +269,7 @@ class AppTranslation extends Translations{
       "family": "Familie",
       "account": "Konto",
       "more-info": "Weitere Informationen",
-      "my-cart": "Hilfe-Center",
+      "my-cart": "Mein Warenkorb",
       "notification": "Benachrichtigung",
       "privacy-policy": "Datenschutz-Bestimmungen",
       "news-services": "Nachrichten & Dienstleistungen",
@@ -267,7 +277,15 @@ class AppTranslation extends Translations{
       "empty": "Nun, es gibt kein Essen, das Sie suchen :(",
       "other-food": "Finden Sie andere Lebensmittel",
       "other-table": "Finden Sie andere Tische",
-      "place-order": "Bestellung aufgeben"
+      "place-order": "Bestellung aufgeben",
+      "edit": "Bearbeiten",
+      "favorite": "Favoriten",
+      "give-rating": "Bewertung abgeben",
+      "account-settings": "Kontoeinstellungen",
+      "help": "Hilfe & Melden",
+      "empty_cart": "Nun, es gibt keinen Artikel in deinem Warenkorb :(",
+      "detail_cart": "Warenkorbdetails",
+      "empty_favorite": "Nun, es gibt keinen Artikel in deinen Favoriten"
     },
     "tr": {
       "1": "Dil",
@@ -345,7 +363,7 @@ class AppTranslation extends Translations{
       "family": "Aile",
       "account": "Hesap",
       "more-info": "Daha Fazla Bilgi",
-      "my-cart": "Yardım Merkezi",
+      "my-cart": "Sepetim",
       "notification": "Bildirim",
       "privacy-policy": "Gizlilik Politikası",
       "news-services": "Haberler ve Hizmetler",
@@ -353,7 +371,15 @@ class AppTranslation extends Translations{
       "empty": "Üzgünüm, aradığınız yemek yok :(",
       "other-food": "Diğer Yiyecekleri Bul",
       "other-table": "Diğer Masaları Bul",
-      "place-order": "Sipariş Ver"
+      "place-order": "Sipariş Ver",
+      "edit": "Düzenle",
+      "favorite": "Favoriler",
+      "give-rating": "Puan Ver",
+      "account-settings": "Hesap Ayarları",
+      "help": "Yardım & Bildir",
+      "empty_cart": "Üzgünüz, sepetinizde hiç ürün yok :(",
+      "detail_cart": "Sepet Detayı",
+      "empty_favorite": "Üzgünüz, favorilerinizde hiç ürün yok"
     },
     "it": {
       "1": "Lingua",
@@ -431,7 +457,7 @@ class AppTranslation extends Translations{
       "family": "Famiglia",
       "account": "Account",
       "more-info": "Maggiori informazioni",
-      "my-cart": "Centro assistenza",
+      "my-cart": "Il mio carrello",
       "notification": "Notifica",
       "privacy-policy": "Politica sulla privacy",
       "news-services": "Notizie e Servizi",
@@ -439,9 +465,17 @@ class AppTranslation extends Translations{
       "empty": "Bene, non c'è cibo che stai cercando :(",
       "other-food": "Trova altro cibo",
       "other-table": "Trova un'altra tavola",
-      "place-order": "Effettua ordine"
+      "place-order": "Effettua ordine",
+      "edit": "Modifica",
+      "favorite": "Preferiti",
+      "give-rating": "Dai una valutazione",
+      "account-settings": "Impostazioni account",
+      "help": "Aiuto & Segnala",
+      "empty_cart": "Bene, non ci sono articoli nel tuo carrello :(",
+      "detail_cart": "Dettagli del carrello",
+      "empty_favorite": "Bene, non ci sono articoli nei tuoi preferiti"
     },
-  "fr": {
+    "fr": {
     "1": "Langue",
     "2": "Arabe",
     "3": "Anglais",
@@ -517,7 +551,7 @@ class AppTranslation extends Translations{
     "family": "Famille",
     "account": "Compte",
     "more-info": "Plus d'infos",
-    "my-cart": "Centre d'aide",
+    "my-cart": "Mon Panier",
     "notification": "Notification",
     "privacy-policy": "Politique de confidentialité",
     "news-services": "Actualités et Services",
@@ -525,7 +559,15 @@ class AppTranslation extends Translations{
     "empty": "Eh bien, il n'y a pas de nourriture que vous cherchez :(",
     "other-food": "Trouvez d'autres aliments",
     "other-table": "Trouvez une autre table",
-    "place-order": "Passer commande"
+    "place-order": "Passer commande",
+    "edit": "Modifier",
+    "favorite": "Favoris",
+    "give-rating": "Donner une évaluation",
+    "account-settings": "Paramètres du compte",
+    "help": "Aide & Signaler",
+    "empty_cart": "Eh bien, il n'y a aucun article dans votre panier :(",
+    "detail_cart": "Détails du panier",
+    "empty_favorite": "Eh bien, il n'y a aucun article dans vos favoris"
   }
 
 

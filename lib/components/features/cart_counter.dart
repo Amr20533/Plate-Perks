@@ -12,30 +12,32 @@ class CartCounter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CartController>(builder: (cart){
-      return Row(
-        children: [
-          CircularButton(
-            onTap: (){
-              cart.countDown();
-            },
-            color: AppColors.kGreyColor,
-            icon: Icons.remove,
-          ),
-          Container(
-            width: AppDimensions.getWidth(35),
-            alignment: Alignment.center,
-            margin: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(8)),
-            child: Text('${cart.count}', style: Theme.of(context).textTheme.titleMedium,)),
-          CircularButton(
-            onTap: (){
-              cart.countUp();
-            },
-            color: AppColors.kPrimaryColor,
-            icon: Icons.add,
-          ),
-        ],
-      );
+    return GetBuilder<CartController>(
+        id: 'food_counter',
+        builder: (cart){
+        return Row(
+          children: [
+            CircularButton(
+              onTap: (){
+                cart.countDown();
+              },
+              color: AppColors.kGreyColor,
+              icon: Icons.remove,
+            ),
+            Container(
+              width: AppDimensions.getWidth(35),
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(8)),
+              child: Text('${cart.count}', style: Theme.of(context).textTheme.titleMedium,)),
+            CircularButton(
+              onTap: (){
+                cart.countUp();
+              },
+              color: AppColors.kPrimaryColor,
+              icon: Icons.add,
+            ),
+          ],
+        );
     });
   }
 }

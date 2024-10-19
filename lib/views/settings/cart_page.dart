@@ -14,9 +14,11 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartController>(
+      init: Get.find<CartController>(),
+      id: 'food_cart',
       builder: (cartController){
       return Scaffold(
-        appBar: customDetailsAppBar(context, title: 'detail_cart'.tr),
+        appBar: customDetailsAppBar(context, title: 'my-cart'.tr),
         body: DataReceiverStateView(
           status: cartController.dataStatus,
           child: cartController.cart.isEmpty ? const EmptyCart() : ListView(
@@ -47,7 +49,7 @@ class CartPage extends StatelessWidget {
                           SizedBox(height: AppDimensions.getHeight(10)),
                           Text(food.name, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18), maxLines: 1 , overflow: TextOverflow.ellipsis,),
                           SizedBox(height: AppDimensions.getHeight(8),),
-                          Text('\$${food.price}', style: Theme.of(context).textTheme.titleSmall!.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 16)),
+                          Text('\$${food.price}', style: Theme.of(context).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w500, color: Colors.black, fontSize: 16)),
                         ],
                       ),
                     ),

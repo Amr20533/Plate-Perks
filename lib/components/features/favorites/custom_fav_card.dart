@@ -3,7 +3,6 @@ import 'package:plate_perks/models/food_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
-
 class CustomFavoriteCard extends StatelessWidget {
   const CustomFavoriteCard({
     required this.favTap,
@@ -22,13 +21,14 @@ class CustomFavoriteCard extends StatelessWidget {
     return Container(
       height: AppDimensions.getHeight(114),
       padding: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(8)),
+      margin: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(AppColors.kDefaultPadding)),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-                color: Colors.black.withOpacity(0.12),
-                blurRadius: 10,
+                color: Colors.black.withOpacity(0.059),
+                blurRadius: 22,
                 offset: const Offset(0, -1)
             )
           ]

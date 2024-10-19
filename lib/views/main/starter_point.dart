@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
@@ -19,6 +20,7 @@ class StarterPoint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<FavoriteController>().getFavorites();
+    Get.put(CartController(cartRepo: Get.find(), appServices: Get.find(), ));
 
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,

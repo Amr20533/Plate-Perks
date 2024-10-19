@@ -11,6 +11,11 @@ class CartRepo extends GetxService{
       AppEndPoint.getFoodInCart,
     );
   }
-
+  Future<Response> addCartFood({required int id,required Map<String, dynamic> body})async{
+    return await apiHelper.postData(
+        '${AppEndPoint.addFoodToCart}/$id',
+        body
+    );
+  }
 
 }
