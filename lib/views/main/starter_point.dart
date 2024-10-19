@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:plate_perks/components/features/favorites/favorite_controller.dart';
+import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/end_point.dart';
@@ -33,7 +33,7 @@ class StarterPoint extends StatelessWidget {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${"4".tr} Amr', style: Theme.of(context).textTheme.titleLarge,),
+                    Text('${"7".tr} Amr', style: Theme.of(context).textTheme.titleLarge,),
                     SizedBox(height: AppDimensions.getHeight(3),),
                     Text("8".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 14),),
                   ],
@@ -90,7 +90,7 @@ class StarterPoint extends StatelessWidget {
             onPressed: (){
 
             },
-            text: 'popular-food'.tr,
+            text: 'food'.tr,
           ),
 
           GetBuilder<FoodController>(

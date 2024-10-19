@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:plate_perks/components/default/custom_details_app_bar.dart';
 import 'package:plate_perks/components/features/cart/empty_cart.dart';
 import 'package:plate_perks/components/placeholder/data_receiver_status_view.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
@@ -15,9 +16,7 @@ class CartPage extends StatelessWidget {
     return GetBuilder<CartController>(
       builder: (cartController){
       return Scaffold(
-        appBar: AppBar(
-          title: Text('detail_cart'.tr),
-        ),
+        appBar: customDetailsAppBar(context, title: 'detail_cart'.tr),
         body: DataReceiverStateView(
           status: cartController.dataStatus,
           child: cartController.cart.isEmpty ? const EmptyCart() : ListView(

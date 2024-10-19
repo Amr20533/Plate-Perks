@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
+import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/utils/middlewares/auth_middlewares.dart';
 import 'package:plate_perks/utils/static/routes.dart';
@@ -49,7 +50,12 @@ List<GetPage<dynamic>> pages = [
   GetPage(name: AppRoutes.accountSettings, page: () => const AccountSettings(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.notification, page: () => const NotificationSettings(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.privacy, page: () => const PrivacyPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
-  GetPage(name: AppRoutes.favorites, page: () => const FavoritesPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(name: AppRoutes.favorites, page: () => const FavoritesPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  binding: BindingsBuilder((){
+    Get.find<FavoriteController>();
+    Get.find<FoodController>();
+  })
+  ),
   GetPage(name: AppRoutes.help, page: () => const HelpPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.cart, page: () {
     return const CartPage();

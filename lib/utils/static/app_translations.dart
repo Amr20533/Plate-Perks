@@ -181,6 +181,7 @@ class AppTranslation extends Translations{
       "help": "Help & Report",
       "empty_cart": "Well, there is no item in your cart :(",
       "detail_cart": "Detail Cart",
+      "empty_favorite": "Well, there is no item in your Favorites",
     },
     "de": {
       "1": "Sprache",

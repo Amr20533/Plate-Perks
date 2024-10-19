@@ -35,5 +35,7 @@ class AppAssets{
 
 /// ********************************** Cart *******************************************
   static const String emptyCart = '$imagePath/empty_cart.svg';
+/// ********************************** Favorites *******************************************
+  static const String emptyFavorite = '$imagePath/empty_favorite.svg';
 
 }

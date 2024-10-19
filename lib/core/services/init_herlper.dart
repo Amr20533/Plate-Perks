@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:plate_perks/components/features/favorites/favorite_controller.dart';
+import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/auth/forgot_password_controller.dart';
 import 'package:plate_perks/core/controllers/auth/login_controller.dart';
 import 'package:plate_perks/core/controllers/auth/sign_up_controller.dart';
