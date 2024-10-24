@@ -5,6 +5,7 @@ import 'package:plate_perks/core/controllers/auth/login_controller.dart';
 import 'package:plate_perks/core/controllers/auth/sign_up_controller.dart';
 import 'package:plate_perks/core/controllers/auth/verify_code_controller.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
+import 'package:plate_perks/core/controllers/features/order_controller.dart';
 import 'package:plate_perks/core/controllers/settings/profile_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/core/controllers/starter/main_page_controller.dart';
@@ -16,6 +17,7 @@ import 'package:plate_perks/core/dependencies/api_helper.dart';
 import 'package:plate_perks/core/repositories/auth/login_repository.dart';
 import 'package:plate_perks/core/repositories/features/cart_repo.dart';
 import 'package:plate_perks/core/repositories/features/favorite_repo.dart';
+import 'package:plate_perks/core/repositories/features/order_repository.dart';
 import 'package:plate_perks/core/repositories/settings/profile_repository.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/core/repositories/food_repositories.dart';
@@ -55,6 +57,9 @@ initHelper()async{
   Get.lazyPut(()=> CartRepo(
     apiHelper: Get.find(),
   ));
+  Get.lazyPut(()=> OrderRepo(
+    apiHelper: Get.find(),
+  ));
 
   /// ************************** Authentication Repositories ***********************
   Get.lazyPut(()=>LoginRepo(
@@ -81,6 +86,10 @@ initHelper()async{
   Get.lazyPut(() => CartController(
     appServices: Get.find(),
       cartRepo: Get.find()));
+
+  Get.lazyPut(() => OrderController(
+    appServices: Get.find(),
+      orderRepo: Get.find()));
 
 
   /// ************************** Auth Controllers *************************

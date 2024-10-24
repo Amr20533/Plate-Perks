@@ -36,68 +36,71 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
       ),
       body: GetBuilder<SearchPageController>(
           builder: (controller){
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SearchTextField(searchController: controller.searchController),
-            SizedBox(height: AppDimensions.getHeight(20),),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(AppColors.kDefaultPadding),),
-              child: TabBar(
-                  controller: tabController,
-                  dividerColor: AppColors.kGreyColor,
-                  dividerHeight: 0.3,
-                  indicatorColor: AppColors.kPrimaryColor,
-                  indicatorSize: TabBarIndicatorSize.tab,
-                  labelStyle: Theme.of(context).textTheme.titleMedium,
-                  labelColor: AppColors.kPrimaryColor,
-                  unselectedLabelColor: AppColors.kGreyColor,
-                  indicatorWeight: 3,
-                  tabs: [
-                    Text("food".tr, ),
-                    Text("restaurant".tr,),
-                  ]),
-            ),
-            SizedBox(
-                height: AppDimensions.screenHeight * 0.72,
-                child: TabBarView(
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SearchTextField(searchController: tabController.index == 0 ? controller.searchController : controller.searchRestaurantController),
+              SizedBox(height: AppDimensions.getHeight(20),),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: AppDimensions.getWidth(AppColors.kDefaultPadding),),
+                child: TabBar(
                     controller: tabController,
-                    children: [
-                      controller.searchController.text.isNotEmpty ?  Container(
-                        height: AppDimensions.getHeight(268),
-                        margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
-                        child: Wrap(
-                          children: List.generate(controller.filteredFood.length, (page) => GestureDetector(
-                            onTap: (){
-                              debugPrint('Food id:: ${controller.filteredFood[page].id}');
-                              BottomSheetHandler().foodBottomSheet(foodData: controller.filteredFood[page]);
-                            },
-                            child: CustomFoodCard(
-                                favTap: (){
-
-                                },
-                                foodModel: controller.filteredFood[page],
-                                image: '${AppEndPoint.server}${controller.filteredFood[page].images[0].image}'),
-                          )),
-                        ),
-                      ): Container(),
-                      controller.searchRestaurantController.text.isNotEmpty ?  Container(
-                        height: AppDimensions.getHeight(268),
-                        margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
-                        child: Wrap(
-                          children: List.generate(controller.filteredRestaurant.length, (page) => GestureDetector(
-                            onTap: (){
-                              // _showBottomSheet();
-                            },
-                            child: CustomRestaurantCard(restaurantData: controller.filteredRestaurant[page],
-                                image: '${AppEndPoint.server}${controller.filteredRestaurant[page].images[page].image}'),
-                          )),
-                        ),
-                      ): Container()
-
-                    ])),
-
-          ],
+                    dividerColor: AppColors.kGreyColor,
+                    dividerHeight: 0.3,
+                    indicatorColor: AppColors.kPrimaryColor,
+                    indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: Theme.of(context).textTheme.titleMedium,
+                    labelColor: AppColors.kPrimaryColor,
+                    unselectedLabelColor: AppColors.kGreyColor,
+                    indicatorWeight: 3,
+                    tabs: [
+                      Text("food".tr, ),
+                      Text("restaurant".tr,),
+                    ]),
+              ),
+              Container(
+                  height: AppDimensions.screenHeight * 0.72,
+                  margin: EdgeInsets.only(top: AppDimensions.getHeight(AppColors.kDefaultPadding)),
+                  child: TabBarView(
+                      controller: tabController,
+                      children: [
+                        controller.searchController.text.isNotEmpty ?  Container(
+                          height: AppDimensions.getHeight(268),
+                          margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+                          child: Wrap(
+                            children: List.generate(controller.filteredFood.length, (page) => GestureDetector(
+                              onTap: (){
+                                debugPrint('Food id:: ${controller.filteredFood[page].id}');
+                                BottomSheetHandler().foodBottomSheet(foodData: controller.filteredFood[page]);
+                              },
+                              child: CustomFoodCard(
+                                  favTap: (){
+          
+                                  },
+                                  foodModel: controller.filteredFood[page],
+                                  image: '${AppEndPoint.server}${controller.filteredFood[page].images[0].image}'),
+                            )),
+                          ),
+                        ): Container(),
+                        controller.searchRestaurantController.text.isNotEmpty ?  Container(
+                          height: AppDimensions.getHeight(268),
+                          margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+                          child: Wrap(
+                            children: List.generate(controller.filteredRestaurant.length, (page) => GestureDetector(
+                              onTap: (){
+                                // _showBottomSheet();
+                              },
+                              child: CustomRestaurantCard(restaurantData: controller.filteredRestaurant[page],
+                                  image: '${AppEndPoint.server}${controller.filteredRestaurant[page].images[page].image}'),
+                            )),
+                          ),
+                        ): Container()
+          
+                      ])),
+          
+            ],
+          ),
         );
       }),
     );

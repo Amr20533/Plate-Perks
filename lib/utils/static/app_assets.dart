@@ -23,6 +23,7 @@ class AppAssets{
 
   /// ********************************** Profile *******************************************
   static const String cart = '$iconPath/cart.svg';
+  static const String order = '$iconPath/orders.svg';
   static const String edit = '$iconPath/edit.png';
   static const String info = '$iconPath/info.svg';
   static const String language = '$iconPath/language.svg';

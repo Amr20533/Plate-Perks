@@ -15,18 +15,27 @@ class LoginController extends GetxController{
   late TextEditingController password;
 
 
+  bool _isLoading = false;
+
   bool _isPassword = true;
   bool get isPassword => _isPassword;
+  bool get isLoading => _isLoading;
 
   set isPassword(bool newPass){
     _isPassword = newPass;
     update();
   }
+  set isLoading(bool loading){
+    _isLoading = loading;
+    update();
+  }
 
   Future<dynamic> userLogin(LoginModel loginModel) async {
+    isLoading = true;
     Response response = await loginRepo.login(body: loginModel.toJson());
 
     if (response.statusCode == 200) {
+      isLoading = false;
       LoginResponseModel loginResponseModel = LoginResponseModel.fromJson(response.body);
       appServices.getStorage.write(AppEndPoint.userToken, loginResponseModel.access);
       return loginResponseModel;

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/static/app_assets.dart';
+import 'package:plate_perks/utils/static/routes.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,6 +14,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   double _opacity = 0.0;
+  bool _viewed = false;
 
   @override
   void initState() {
@@ -20,6 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
       setState(() {
         _opacity = 1.0;
       });
+    });
+    Future.delayed(const Duration(seconds: 5), () {
+      setState(() {
+        _viewed = true;
+      });
+      Get.toNamed(AppRoutes.onBoarding);
     });
   }
 

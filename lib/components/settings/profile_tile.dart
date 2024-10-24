@@ -26,7 +26,7 @@ class ProfileTile extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
           minVerticalPadding: 0,
           minTileHeight: AppDimensions.getHeight(40),
-          leading: SvgPicture.asset(tile.icon,color: AppColors.kGreyIconColor),
+          leading: SvgPicture.asset(tile.icon,color: AppColors.kGreyIconColor, width: 24, height: 24),
           title: Text(
             tile.title.tr,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 16, color: Colors.black),

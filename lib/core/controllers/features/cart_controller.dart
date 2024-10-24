@@ -13,13 +13,16 @@ class CartController extends GetxController{
   final AppServices appServices;
   CartController({required this.cartRepo, required this.appServices});
   List<CartData> cart = [];
-  DataStatus dataStatus = DataStatus.loading;
+  // RxList<CartData> cart = <CartData>[].obs;
+
+  DataStatus _dataStatus = DataStatus.loading;
   FoodController foodController = Get.find();
   @override
   void onInit() {
     super.onInit();
     getMyCart();
   }
+  DataStatus get dataStatus => _dataStatus;
 
   int _count = 1;
   int get count => _count;
@@ -27,6 +30,10 @@ class CartController extends GetxController{
   set count(int newCount){
     _count = newCount;
     update(['food_counter']);
+  }
+  set dataStatus(DataStatus newStatus){
+    _dataStatus = newStatus;
+    update(['cart_data_status']);
   }
 
   Future<String> getMyCart()async{
@@ -40,6 +47,7 @@ class CartController extends GetxController{
       if(response.statusCode == 200){
 
         cart.addAll(CartResponseModel.fromJson(response.body).cart);
+        update(['food_cart']);
         dataStatus = DataStatus.success;
         update();
         return 'success';
@@ -63,11 +71,11 @@ class CartController extends GetxController{
     cartRepo.apiHelper.updateHeader(token);
 
     Response response = await cartRepo.addCartFood(id: id, body: cartModel.toJson());
-
     if (response.statusCode == 201) {
-      cart.addAll(CartResponseModel.fromJson(response.body).cart);
+      // cart.addAll(CartResponseModel.fromJson(response.body).cart);
+      cart.clear();
 
-      update(['food_cart']);
+      await getMyCart();
 
       debugPrint("Cart Message: ${response.statusText}");
     } else {
@@ -86,10 +94,9 @@ class CartController extends GetxController{
   }
 
 
-
-
   @override
   void dispose() {
+    cart.clear();
     super.dispose();
   }
 

@@ -50,8 +50,9 @@ class ProfileController extends GetxController{
     }
   }
 
-  Future<void> logOut() async {
-    await appServices.getStorage.read(AppEndPoint.userToken);
+  void logOut() {
+    appServices.getStorage.remove(AppEndPoint.userToken);
+    update();
     Get.offAndToNamed(AppRoutes.login);
   }
 

@@ -1,6 +1,6 @@
 class AppRoutes{
-  // static const String splash = '/';
-  static const String onBoarding = '/';
+  static const String splash = '/';
+  static const String onBoarding = '/boarding';
   static const String main = '/main';
   static const String search = '/search-data';
   static const String login = '/log-in';
@@ -17,6 +17,7 @@ class AppRoutes{
   static const String favorites = '/my-favorites';
   static const String help = '/help';
   static const String cart = '/my-cart';
+  static const String orders = '/my-orders';
   static const String giveRating = '/give-rating';
   static const String services = '/services';
   static const String language = '/language';

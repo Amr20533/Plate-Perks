@@ -23,6 +23,9 @@ class AppEndPoint{
  /// >>>>>>>>>>>>>>>>>>>>>>>>> Reviews End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   static const String addFoodToCart = '/api/v1/cart/userAddToCart';
   static const String getFoodInCart = '/api/v1/cart/userGetAllCart';
+ /// >>>>>>>>>>>>>>>>>>>>>>>>> Order End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  static const String makeFoodOrder = '/api/v1/order/createOrder';
+  static const String getFoodOrders = '/api/v1/order/getAllOrders';
 
   static const String userToken = 'user-token';
 

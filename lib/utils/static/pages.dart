@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
+import 'package:plate_perks/core/controllers/features/order_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/utils/middlewares/auth_middlewares.dart';
 import 'package:plate_perks/utils/static/routes.dart';
@@ -17,6 +18,7 @@ import 'package:plate_perks/views/settings/favorites_page.dart';
 import 'package:plate_perks/views/settings/help_page.dart';
 import 'package:plate_perks/views/settings/language_settings.dart';
 import 'package:plate_perks/views/settings/notification_settings.dart';
+import 'package:plate_perks/views/settings/order_page.dart';
 import 'package:plate_perks/views/settings/privacy_page.dart';
 import 'package:plate_perks/views/settings/rating_app_page.dart';
 import 'package:plate_perks/views/settings/services_page.dart';
@@ -26,7 +28,7 @@ import 'package:plate_perks/views/start/splash_screen.dart';
 
 List<GetPage<dynamic>> pages = [
 
-  // GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
+  GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
   GetPage(name: AppRoutes.onBoarding, page: () {
     return const OnBoardingScreen();
   },
@@ -62,6 +64,14 @@ List<GetPage<dynamic>> pages = [
   }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
   binding: BindingsBuilder(() {
     Get.put<CartController>(CartController(cartRepo: Get.find(), appServices: Get.find()));
+    Get.put<FoodController>(FoodController(foodRepo: Get.find()));
+  })
+  ),
+  GetPage(name: AppRoutes.orders, page: () {
+    return const OrderPage();
+  }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  binding: BindingsBuilder(() {
+    Get.put<OrderController>(OrderController(orderRepo: Get.find(), appServices: Get.find()));
     Get.put<FoodController>(FoodController(foodRepo: Get.find()));
   })
   ),

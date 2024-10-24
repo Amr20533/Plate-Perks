@@ -49,8 +49,8 @@ class ProfileView extends StatelessWidget {
                       })),
                 ),
                 Center(
-                  child: TextButton(onPressed: ()async{
-                    await controller.logOut();
+                  child: TextButton(onPressed: () {
+                    controller.logOut();
                   },
                     child: Text("44".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.kLightRedColor),)),
                 ),

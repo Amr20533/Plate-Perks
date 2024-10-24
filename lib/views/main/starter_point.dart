@@ -12,6 +12,7 @@ import 'package:plate_perks/components/main/custom_restaurant_card.dart';
 import 'package:plate_perks/components/main/custom_see_all_bar.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
 import 'package:plate_perks/utils/class/bottom_sheet_handler.dart';
+import 'package:plate_perks/utils/static/routes.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class StarterPoint extends StatelessWidget {
@@ -40,17 +41,28 @@ class StarterPoint extends StatelessWidget {
                     Text("8".tr, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 14),),
                   ],
                 ),
-                const Stack(
-                  children:  [
-                    Icon(Icons.shopping_cart, color: AppColors.kGreyColor, size: 25,),
-                    Positioned(
-                      top: 0, right: 3,
-                        child: CircleAvatar(
-                          radius: 4,
-                          backgroundColor: AppColors.kPrimaryColor,
-                        )),
-                  ],
-                )
+                GetBuilder<CartController>(builder: (cartController){
+                  return Stack(
+                    children:  [
+                      GestureDetector(
+                        onTap: (){
+                          if(cartController.cart.isNotEmpty){
+                            Get.toNamed(AppRoutes.cart);
+                          }else{
+                            debugPrint("Your cart is Empty");
+                          }
+
+                        },
+                        child: const Icon(Icons.shopping_cart, color: AppColors.kGreyColor, size: 25,)),
+                      cartController.cart.isNotEmpty ? const Positioned(
+                          top: 0, right: 3,
+                          child: CircleAvatar(
+                            radius: 4,
+                            backgroundColor: AppColors.kPrimaryColor,
+                          )) : const SizedBox.shrink(),
+                    ],
+                  );
+                })
               ],
             ),
           ),
@@ -81,7 +93,7 @@ class StarterPoint extends StatelessWidget {
                   shrinkWrap: true,
                   itemBuilder: (context, index) => CustomRestaurantCard(
                     restaurantData: controller.restaurant[index],
-                    image:'${AppEndPoint.server}${controller.restaurant[0].images[0].image}',
+                    image:'${AppEndPoint.server}${controller.restaurant[index].images[0].image}',
                   ), separatorBuilder: (context, index) => SizedBox(width: AppDimensions.getWidth(6))),
             );
           }),
@@ -158,23 +170,6 @@ class StarterPoint extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  int getFavItem({required FoodController controller}) {
-    for (int index = 0; index < controller.food.length; index++) {
-      int foodId = controller.food[index].id; // Get the food ID
-
-      // Check if there are any favorites for the current food item
-      bool isFavorite = controller.food[index].favorites.any((fav) => fav.food == foodId);
-
-      if (isFavorite) {
-        debugPrint("Fav Item: ${controller.food[index].favorites.first.food}"); // Print the first favorite food ID
-        return foodId; // Return the food ID of the first favorite found
-      }
-    }
-
-    debugPrint("No Fav Item!!");
-    return -1;
   }
 }
 

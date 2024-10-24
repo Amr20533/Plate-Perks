@@ -20,9 +20,9 @@ class CustomAuthHeader extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withOpacity(0.12),
-                  blurRadius: 10,
-                  offset: const Offset(0, -1)
+                  color: Colors.black.withOpacity(0.032),
+                  blurRadius: 26,
+                  offset: const Offset(0, 16)
               )
             ]
         ),

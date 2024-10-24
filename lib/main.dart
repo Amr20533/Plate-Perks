@@ -9,6 +9,7 @@ import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/utils/static/app_translations.dart';
 import 'package:plate_perks/utils/static/pages.dart';
 import 'package:plate_perks/utils/styles/en_theme.dart';
+import 'package:plate_perks/views/start/splash_screen.dart';
 
 
 void main() async{
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // amlp-55-14%55#
+    // amrelnemr6@example.com
     Get.find<RestaurantController>().getAllRestaurantData();
     Get.find<FoodController>().getAllFoodData();
     final lController = Get.find<LanguageController>();
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
       translations: AppTranslation(),
       title: 'Plate Perks',
       theme: enTheme,
-      // home: const OnBoardingScreen(),
+      // home: const SplashScreen(),
       getPages: pages,
     );
   }

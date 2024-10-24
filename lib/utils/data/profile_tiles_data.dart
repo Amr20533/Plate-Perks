@@ -12,7 +12,7 @@ class ProfileTilesData{
     required this.path,
   });
   static List<ProfileTilesData> account = [
-    ProfileTilesData(icon: AppAssets.cart, title: 'cart', path: AppRoutes.cart),
+    ProfileTilesData(icon: AppAssets.order, title: 'order', path: AppRoutes.orders),
     ProfileTilesData(icon: AppAssets.favorite, title: 'favorite', path: AppRoutes.favorites),
     ProfileTilesData(icon: AppAssets.profile, title: 'account-settings', path: AppRoutes.accountSettings),
     ProfileTilesData(icon: AppAssets.info, title: 'help', path: AppRoutes.help),

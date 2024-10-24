@@ -23,11 +23,13 @@ class CartData {
   final int? food;
   final int? user;
   final bool? inCart;
+  int quantity;
 
   CartData({
      this.food,
      this.user,
      this.inCart,
+     required this.quantity,
   });
 
   factory CartData.fromJson(Map<String, dynamic> json) {
@@ -35,6 +37,7 @@ class CartData {
       food: json['food'] as int,
       user: json['user'] as int,
       inCart: json['in_cart'] as bool,
+      quantity: json['quantity'] as int,
     );
   }
 
@@ -43,6 +46,7 @@ class CartData {
       'food': food,
       'user': user,
       'in_cart': inCart,
+      'quantity': quantity,
     };
   }
 }

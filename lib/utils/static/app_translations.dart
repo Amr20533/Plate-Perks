@@ -192,6 +192,7 @@ class AppTranslation extends Translations{
       "empty_favorite": "Well, there is no item in your Favorites",
       "place_order": "Successfully place order",
       "cart": "Cart",
+      "order": "Orders",
     },
     "de": {
       "1": "Sprache",

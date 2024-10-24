@@ -12,6 +12,7 @@ class CustomRoundedButton extends StatelessWidget {
     this.textColor = Colors.white,
     this.width = 360,
     this.height = 45,
+    this.loading = false,
     super.key,
   });
 
@@ -22,6 +23,7 @@ class CustomRoundedButton extends StatelessWidget {
   final VoidCallback onTap;
   final Color bgColor;
   final Color textColor;
+  final bool loading;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class CustomRoundedButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimensions.getWidth(8)),
               color: bgColor
           ),
-          child: Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor),),
+          child: loading ? const CircularProgressIndicator(color: Colors.white,) : Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor),),
         ));
   }
 }

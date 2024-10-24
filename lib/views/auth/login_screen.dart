@@ -111,6 +111,7 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
                           debugPrint('Login failed: $error');
                         });
                       },
+                          loading: login.isLoading,
                           title: '22'.tr),
                     ),
                   ),
