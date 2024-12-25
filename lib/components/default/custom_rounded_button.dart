@@ -38,7 +38,10 @@ class CustomRoundedButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimensions.getWidth(8)),
               color: bgColor
           ),
-          child: loading ? const CircularProgressIndicator(color: Colors.white,) : Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor),),
+          child: loading ? const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: CircularProgressIndicator(color: Colors.white,),
+          ) : Text(title, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor),),
         ));
   }
 }

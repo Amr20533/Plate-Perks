@@ -8,12 +8,14 @@ class AuthTextField extends StatelessWidget {
     required this.title,
     required this.keyboardType,
     this.suffixIcon,
+    this.hintText = '',
     this.obscureText = false,
     super.key,
   });
 
   final TextEditingController controller;
   final String title;
+  final String hintText;
   final TextInputType keyboardType;
   final Widget? suffixIcon;
   final bool obscureText;
@@ -36,9 +38,11 @@ class AuthTextField extends StatelessWidget {
             child: TextFormField(
               controller: controller,
               cursorHeight: 18,
-              cursorColor: Colors.black,
+              cursorColor: AppColors.kPrimaryColor,
+
+              focusNode: FocusNode(),
               decoration: InputDecoration(
-                hintText: title,
+                hintText: hintText.isNotEmpty ? hintText : title,
                 hintStyle: Theme.of(context).textTheme.titleSmall,
                 border: OutlineInputBorder(
                       borderSide: const BorderSide(width: 1.5, color: AppColors.kGreyColor),

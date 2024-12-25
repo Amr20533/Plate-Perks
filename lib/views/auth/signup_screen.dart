@@ -4,7 +4,9 @@ import 'package:plate_perks/components/auth/auth_text_field.dart';
 import 'package:plate_perks/components/auth/custom_auth_header.dart';
 import 'package:plate_perks/components/default/custom_rounded_button.dart';
 import 'package:plate_perks/core/controllers/auth/sign_up_controller.dart';
+import 'package:plate_perks/models/auth/signup_model.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
+import 'package:plate_perks/utils/static/routes.dart';
 import 'package:plate_perks/utils/styles/app_colors.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -58,7 +60,6 @@ late Animation<Offset> _buttonAnimation;
   }
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => SignupController());
     return Scaffold(
       body: GetBuilder<SignupController>(builder: (signup){
         return SafeArea(
@@ -113,9 +114,26 @@ late Animation<Offset> _buttonAnimation;
                     padding: EdgeInsets.only(top: AppDimensions.getHeight(8), bottom: AppDimensions.getHeight(3)),
                     child: SlideTransition(
                       position: _buttonAnimation,
-                      child: CustomRoundedButton(onTap: (){
-
+                      child: CustomRoundedButton(
+                        onTap: (){
+                          SignUpModel signupModel = SignUpModel(
+                              firstName: signup.firstName.text,
+                              lastName: signup.lastName.text,
+                              email: signup.email.text,
+                              password: signup.password.text,
+                          );
+                          signup.userSignUp(signupModel).then((response) {
+                            if(response == true){
+                              debugPrint('SignUp Success: $response');
+                              Get.offNamed(AppRoutes.login);
+                            }else{
+                              debugPrint('SignUp Failed: $response');
+                            }
+                          }).catchError((error) {
+                            debugPrint('SignUp failed: $error');
+                          });
                       },
+                          loading: signup.isLoading,
                           title: '19'.tr),
                     ),
                   ),
@@ -125,7 +143,7 @@ late Animation<Offset> _buttonAnimation;
                       children: [
                         Text('21'.tr),
                         TextButton(onPressed: (){
-
+                          Get.offNamed(AppRoutes.login);
                         },
                           child: Text('22'.tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.kPrimaryColor),)),
                       ],

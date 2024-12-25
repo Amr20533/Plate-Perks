@@ -8,7 +8,6 @@ import 'package:plate_perks/core/services/init_herlper.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/utils/static/app_translations.dart';
 import 'package:plate_perks/utils/static/pages.dart';
-import 'package:plate_perks/utils/styles/en_theme.dart';
 import 'package:plate_perks/views/start/splash_screen.dart';
 
 
@@ -25,15 +24,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // amlp-55-14%55#
     // amrelnemr6@example.com
+    // AppServices appServices = Get.find();
+    // appServices.getStorage.remove(AppEndPoint.userToken);
+
     Get.find<RestaurantController>().getAllRestaurantData();
     Get.find<FoodController>().getAllFoodData();
     final lController = Get.find<LanguageController>();
     return GetMaterialApp(
-      locale: lController.changeLanguage("tr"),
+      locale: lController.language,
+      // locale: lController.changeLanguage("tr"),
       debugShowCheckedModeBanner: false,
       translations: AppTranslation(),
       title: 'Plate Perks',
-      theme: enTheme,
+      theme: lController.appTheme,
       // home: const SplashScreen(),
       getPages: pages,
     );

@@ -1,4 +1,5 @@
 enum DataStatus{
+  freeze,
   loading,
   success,
   failed,

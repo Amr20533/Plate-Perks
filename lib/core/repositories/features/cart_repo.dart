@@ -11,10 +11,15 @@ class CartRepo extends GetxService{
       AppEndPoint.getFoodInCart,
     );
   }
-  Future<Response> addCartFood({required int id,required Map<String, dynamic> body})async{
+  Future<Response> addCartFood({required int foodId,required Map<String, dynamic> body})async{
     return await apiHelper.postData(
-        '${AppEndPoint.addFoodToCart}/$id',
+        '${AppEndPoint.addFoodToCart}/$foodId',
         body
+    );
+  }
+  Future<Response> removeCartFood({required int foodId})async{
+    return await apiHelper.deleteData(
+        '${AppEndPoint.deleteFoodFromCart}/$foodId',
     );
   }
 

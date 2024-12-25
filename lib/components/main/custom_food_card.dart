@@ -29,7 +29,7 @@ class CustomFoodCard extends StatelessWidget {
             BoxShadow(
                 color: Colors.black.withOpacity(0.12),
                 blurRadius: 10,
-                offset: const Offset(0, -1)
+                offset: const Offset(0, 1)
             )
           ]
       ),
@@ -51,21 +51,30 @@ class CustomFoodCard extends StatelessWidget {
               ),
               InkWell(
                 onTap: favTap,
-                child: Container(
-                  width: AppDimensions.getWidth(30),
-                  height: AppDimensions.getWidth(30),
-                  decoration: BoxDecoration(
-                      color: favFood ? AppColors.kPrimaryColor : AppColors.kLightGreyColor,
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(AppDimensions.getWidth(12)), bottomLeft: Radius.circular(AppDimensions.getWidth(12))),
+                child: ClipRRect(
+                  borderRadius: BorderRadiusDirectional.only(
+                      topEnd: Radius.circular(AppDimensions.getWidth(12)),
+                      bottomStart: Radius.circular(AppDimensions.getWidth(12))
                   ),
-                  child: Icon(Icons.favorite_border, color: favFood ? Colors.white : AppColors.kGreyColor, size: 22,),
+                  child: Container(
+                    width: AppDimensions.getWidth(30),
+                    height: AppDimensions.getWidth(30),
+                    decoration: BoxDecoration(
+                        color: favFood ? AppColors.kPrimaryColor : AppColors.kLightGreyColor,
+                      borderRadius: BorderRadiusDirectional.only(
+                          topEnd: Radius.circular(AppDimensions.getWidth(12)),
+                          bottomStart: Radius.circular(AppDimensions.getWidth(12))
+                      ),
+                    ),
+                    child: Icon(Icons.favorite_border, color: favFood ? Colors.white : AppColors.kGreyColor, size: 22,),
+                  ),
                 ),
               )
 
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: AppDimensions.getWidth(16)),
+            padding: EdgeInsetsDirectional.only(start: AppDimensions.getWidth(16)),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: AppDimensions.getHeight(10)),
@@ -77,7 +86,7 @@ class CustomFoodCard extends StatelessWidget {
                     children: [
                       Icon(Icons.star, color: AppColors.kYellowColor,size: AppDimensions.getWidth(19),),
                       SizedBox(width: AppDimensions.getWidth(4),),
-                      Text('${foodModel.ratings}', style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: AppDimensions.getWidth(16),)),
+                      Text(foodModel.ratings, style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: AppDimensions.getWidth(16),)),
                     ],
                   ),
                 ),

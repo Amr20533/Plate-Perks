@@ -18,9 +18,15 @@ class AppRoutes{
   static const String help = '/help';
   static const String cart = '/my-cart';
   static const String orders = '/my-orders';
+  static const String orderDetail = '/order-details';
   static const String giveRating = '/give-rating';
   static const String services = '/services';
   static const String language = '/language';
+
+  /// >>>>>>>>>>>>>>>>>>>>>>>> Order <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  static const String createOrder = '/create-order';
+  static const String checkoutSuccess = '/checkout-success';
+  static const String checkoutFailed = '/checkout-failed';
 
 
 }

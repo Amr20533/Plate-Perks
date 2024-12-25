@@ -41,7 +41,7 @@ class SearchView extends StatelessWidget {
                 children: [
                   SvgPicture.asset(AppAssets.search, color: AppColors.kGreyColor,),
                   SizedBox(width: AppDimensions.getWidth(12),),
-                  Text('7'.tr, style: Theme.of(context).textTheme.titleSmall,)
+                  Text('11'.tr, style: Theme.of(context).textTheme.titleSmall,)
                 ],
               ),
             ),

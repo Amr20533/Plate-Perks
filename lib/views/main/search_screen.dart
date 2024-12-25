@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:plate_perks/components/main/custom_food_card.dart';
 import 'package:plate_perks/components/main/custom_restaurant_card.dart';
 import 'package:plate_perks/components/search/search_text_field.dart';
+import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/core/controllers/starter/search_controller.dart';
 import 'package:plate_perks/end_point.dart';
 import 'package:plate_perks/utils/Dimensions/app_dimensions.dart';
@@ -29,6 +30,7 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(()=> CartController(cartRepo: Get.find(), appServices: Get.find()));
     Get.find<SearchPageController>();
     return Scaffold(
       appBar: AppBar(
@@ -74,12 +76,15 @@ class _SearchScreenState extends State<SearchScreen> with SingleTickerProviderSt
                                 debugPrint('Food id:: ${controller.filteredFood[page].id}');
                                 BottomSheetHandler().foodBottomSheet(foodData: controller.filteredFood[page]);
                               },
-                              child: CustomFoodCard(
-                                  favTap: (){
-          
-                                  },
-                                  foodModel: controller.filteredFood[page],
-                                  image: '${AppEndPoint.server}${controller.filteredFood[page].images[0].image}'),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.only(end: AppDimensions.getWidth(6)),
+                                child: CustomFoodCard(
+                                    favTap: (){
+
+                                    },
+                                    foodModel: controller.filteredFood[page],
+                                    image: '${AppEndPoint.server}${controller.filteredFood[page].images[0].image}'),
+                              ),
                             )),
                           ),
                         ): Container(),

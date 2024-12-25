@@ -14,6 +14,7 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(()=> ProfileController(profileRepo: Get.find(), appServices: Get.find()));
     return GetBuilder<ProfileController>(
         init: Get.find<ProfileController>(),
         builder: (controller){

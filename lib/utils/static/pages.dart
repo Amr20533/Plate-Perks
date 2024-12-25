@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
+import 'package:plate_perks/core/controllers/auth/login_controller.dart';
+import 'package:plate_perks/core/controllers/auth/sign_up_controller.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
 import 'package:plate_perks/core/controllers/features/order_controller.dart';
+import 'package:plate_perks/core/controllers/settings/profile_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/utils/middlewares/auth_middlewares.dart';
 import 'package:plate_perks/utils/static/routes.dart';
@@ -18,7 +21,11 @@ import 'package:plate_perks/views/settings/favorites_page.dart';
 import 'package:plate_perks/views/settings/help_page.dart';
 import 'package:plate_perks/views/settings/language_settings.dart';
 import 'package:plate_perks/views/settings/notification_settings.dart';
-import 'package:plate_perks/views/settings/order_page.dart';
+import 'package:plate_perks/views/settings/order/checkout/checkout_failed.dart';
+import 'package:plate_perks/views/settings/order/checkout/checkuot_success.dart';
+import 'package:plate_perks/views/settings/order/create_order_page.dart';
+import 'package:plate_perks/views/settings/order/order_details.dart';
+import 'package:plate_perks/views/settings/order/order_page.dart';
 import 'package:plate_perks/views/settings/privacy_page.dart';
 import 'package:plate_perks/views/settings/rating_app_page.dart';
 import 'package:plate_perks/views/settings/services_page.dart';
@@ -39,11 +46,14 @@ List<GetPage<dynamic>> pages = [
   ),
   GetPage(name: AppRoutes.search, page: () => const SearchScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.login, page: () => const LoginScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
-    middlewares: [
+      binding: BindingsBuilder(()=> Get.lazyPut(() => LoginController(loginRepo: Get.find(), appServices: Get.find()))),
+      middlewares: [
       AuthMiddleware(),
     ],
   ),
-  GetPage(name: AppRoutes.signup, page: () => const SignupScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(name: AppRoutes.signup, page: () => const SignupScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  binding: BindingsBuilder(()=> Get.lazyPut(() => SignupController(signupRepo: Get.find())))
+  ),
   GetPage(name: AppRoutes.forgotPass, page: () => const ForgotPasswordScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.verifyCode, page: () => const VerifyCodeScreen(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
 /// >>>>>>>>>>>>>>>>>>>>>>>> Settings Routes <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -63,10 +73,12 @@ List<GetPage<dynamic>> pages = [
     return const CartPage();
   }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
   binding: BindingsBuilder(() {
-    Get.put<CartController>(CartController(cartRepo: Get.find(), appServices: Get.find()));
+    Get.lazyPut(() => CartController(cartRepo: Get.find(), appServices: Get.find()));
     Get.put<FoodController>(FoodController(foodRepo: Get.find()));
   })
   ),
+
+
   GetPage(name: AppRoutes.orders, page: () {
     return const OrderPage();
   }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
@@ -75,9 +87,37 @@ List<GetPage<dynamic>> pages = [
     Get.put<FoodController>(FoodController(foodRepo: Get.find()));
   })
   ),
+
+  GetPage(name: AppRoutes.orderDetail, page: () {
+    final OrderDetails orderDetails = Get.arguments;
+    return orderDetails;
+  }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  binding: BindingsBuilder(() {
+    Get.put<OrderController>(OrderController(orderRepo: Get.find(), appServices: Get.find()));
+    Get.put<FoodController>(FoodController(foodRepo: Get.find()));
+  })
+  ),
+
+
+  GetPage(name: AppRoutes.createOrder, page: () {
+    final CreateOrderPage orderPage = Get.arguments;
+    return orderPage;
+  }, transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400),
+  binding: BindingsBuilder(() {
+    Get.put<OrderController>(OrderController(orderRepo: Get.find(), appServices: Get.find()));
+    Get.put<ProfileController>(ProfileController(profileRepo: Get.find(), appServices: Get.find()));
+    Get.lazyPut(() => CartController(cartRepo: Get.find(), appServices: Get.find()));
+    Get.put<FoodController>(FoodController(foodRepo: Get.find()));
+  })
+  ),
+
+
   GetPage(name: AppRoutes.giveRating, page: () => const RatingAppPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.services, page: () => const ServicesPage(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
   GetPage(name: AppRoutes.language, page: () => const LanguageSettings(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
 
+  /// >>>>>>>>>>>>>>>>>>>>>>>> Order <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+  GetPage(name: AppRoutes.checkoutSuccess, page: () => const CheckoutSuccess(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
+  GetPage(name: AppRoutes.checkoutFailed, page: () => const CheckoutFailed(), transition: Transition.fadeIn, transitionDuration: const Duration(milliseconds: 400)),
 
 ];

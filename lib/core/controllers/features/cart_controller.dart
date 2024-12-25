@@ -70,7 +70,7 @@ class CartController extends GetxController{
     debugPrint(">>> $token");
     cartRepo.apiHelper.updateHeader(token);
 
-    Response response = await cartRepo.addCartFood(id: id, body: cartModel.toJson());
+    Response response = await cartRepo.addCartFood(foodId: id, body: cartModel.toJson());
     if (response.statusCode == 201) {
       // cart.addAll(CartResponseModel.fromJson(response.body).cart);
       cart.clear();
@@ -82,6 +82,29 @@ class CartController extends GetxController{
       throw Exception('Failed to Add Cart Data: ${response.statusText}');
     }
   }
+
+
+
+  Future<void> removerFoodFromCart({required int id}) async {
+    String token = appServices.getStorage.read(AppEndPoint.userToken);
+    debugPrint(">>> $token");
+    cartRepo.apiHelper.updateHeader(token);
+
+    Response response = await cartRepo.removeCartFood(foodId: id);
+
+    debugPrint('Response Status Code: ${response.statusCode}');
+    debugPrint('Response Status Text: ${response.statusText}');
+    debugPrint('Response Body: ${response.body}');
+
+    if (response.statusCode == 204) {
+      cart.clear();
+      await getMyCart();
+      debugPrint("Remove Cart Message: ${response.statusText}");
+    } else {
+      throw Exception('Failed to Remove Cart Item: ${response.statusText}');
+    }
+  }
+
 
 
   void countUp(){

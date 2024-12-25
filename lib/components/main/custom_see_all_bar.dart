@@ -15,7 +15,7 @@ class CustomSeeAllBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppDimensions.getHeight(14),left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+      padding: EdgeInsetsDirectional.only(bottom: AppDimensions.getHeight(14), start: AppDimensions.getWidth(AppColors.kDefaultPadding)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(text, style: Theme.of(context).textTheme.headlineSmall,),

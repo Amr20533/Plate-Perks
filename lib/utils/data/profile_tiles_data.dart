@@ -16,7 +16,7 @@ class ProfileTilesData{
     ProfileTilesData(icon: AppAssets.favorite, title: 'favorite', path: AppRoutes.favorites),
     ProfileTilesData(icon: AppAssets.profile, title: 'account-settings', path: AppRoutes.accountSettings),
     ProfileTilesData(icon: AppAssets.info, title: 'help', path: AppRoutes.help),
-    ProfileTilesData(icon: AppAssets.language, title: 'lang', path: AppRoutes.language),
+    ProfileTilesData(icon: AppAssets.language, title: '1', path: AppRoutes.language),
     ProfileTilesData(icon: AppAssets.notification, title: 'notification', path: AppRoutes.notification),
   ];
   static List<ProfileTilesData> info = [

@@ -41,7 +41,10 @@ class _SplashScreenState extends State<SplashScreen> {
         height: AppDimensions.screenHeight,
         child: Stack(
           children: [
-            Image.asset(AppAssets.circles),
+            PositionedDirectional(
+                start: AppDimensions.getWidth(0),
+                child: Image.asset(AppAssets.circles)
+            ),
             Align(
               alignment: Alignment.center,
               child: AnimatedOpacity(
@@ -49,9 +52,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 duration: const Duration(milliseconds: 600),
                   child: Text('Plate Perks.', style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.white),)),
             ),
-            Positioned(
+            PositionedDirectional(
                 bottom: AppDimensions.getHeight(130),
-                right: AppDimensions.getWidth(0),
+                end: AppDimensions.getWidth(0),
                 child: Image.asset(AppAssets.dots)),
         ],),
       )),

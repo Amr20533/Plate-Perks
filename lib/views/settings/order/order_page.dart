@@ -19,16 +19,27 @@ class OrderPage extends StatelessWidget {
             appBar: customDetailsAppBar(context, title: 'orders'.tr),
             body: DataReceiverStateView(
               status: orderController.dataStatus,
-              child: orderController.order.isEmpty ? const EmptyCart() : ListView(
-                children: List.generate(orderController.order.length, (orderIndex){
-                  final order = orderController.order[orderIndex].orderItems[orderIndex];
-                  final food = orderController.foodController.food.firstWhere((food) => food.id == order.foodId);
+              child: orderController.order.isEmpty
+                  ? const EmptyCart()
+                  : ListView.builder(
+                itemCount: orderController.order.length,
+                itemBuilder: (context, orderIndex) {
+                  final order = orderController.order[orderIndex];
 
-                  return OrderTile(food: food, order: order, orderIndex: orderIndex);
-                }),
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: order.orderItems.length,
+                    itemBuilder: (context, itemIndex) {
+                      final orderItem = order.orderItems[itemIndex];
+                      final food = orderController.foodController.food.firstWhere((food) => food.id == orderItem.foodId);
+
+                      return OrderTile(food: food, order: orderItem, orderIndex: orderIndex);
+                    },
+                  );
+                },
               ),
-            ),
-          );
+            ),          );
         });
   }
 }

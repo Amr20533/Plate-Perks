@@ -58,7 +58,6 @@ class FoodController extends GetxController{
   }
 
 
-
   @override
   void onInit() {
     getAllFoodData();
@@ -69,4 +68,5 @@ class FoodController extends GetxController{
   void dispose() {
     super.dispose();
   }
+
 }

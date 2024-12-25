@@ -22,12 +22,15 @@ class AppEndPoint{
 
  /// >>>>>>>>>>>>>>>>>>>>>>>>> Reviews End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   static const String addFoodToCart = '/api/v1/cart/userAddToCart';
+  static const String deleteFoodFromCart = '/api/v1/cart/userRemoveFromCart';
   static const String getFoodInCart = '/api/v1/cart/userGetAllCart';
  /// >>>>>>>>>>>>>>>>>>>>>>>>> Order End Points <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
   static const String makeFoodOrder = '/api/v1/order/createOrder';
   static const String getFoodOrders = '/api/v1/order/getAllOrders';
+  static const String foodCheckout = '/api/v1/order/checkout';
 
   static const String userToken = 'user-token';
+  static const String language = 'app-lang';
 
 
 

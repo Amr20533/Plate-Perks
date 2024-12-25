@@ -48,10 +48,10 @@ class RecentDataCard extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Text('Done', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.kPrimaryColor),),
+              Text(index.isOdd && index % 3 == 0 ?'done'.tr : index % 2 == 0 ?'process'.tr : 'cancel'.tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.kPrimaryColor),),
 
             ],
-          ), separatorBuilder: (context, index) => SizedBox(height: 6,));
+          ), separatorBuilder: (context, index) => const SizedBox(height: 6,));
     });
   }
 }

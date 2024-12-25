@@ -1,3 +1,6 @@
+import 'dart:convert';
+Order orderFromJson(String json) => Order.fromJson(jsonDecode(json));
+
 class OrderResponseModel{
   final List<Order> orders;
 

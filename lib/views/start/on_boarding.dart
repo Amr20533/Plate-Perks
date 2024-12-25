@@ -32,6 +32,7 @@ class OnBoardingScreen extends StatelessWidget {
                 onTap: (){
                   Get.toNamed(AppRoutes.signup);
                 },
+                width: double.infinity,
                 title: '18'.tr
             ),
             SizedBox(height: AppDimensions.getHeight(AppColors.kDefaultPadding),),

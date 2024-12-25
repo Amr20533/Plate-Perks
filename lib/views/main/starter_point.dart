@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:plate_perks/core/controllers/features/cart_controller.dart';
 import 'package:plate_perks/core/controllers/features/favorite_controller.dart';
+import 'package:plate_perks/core/controllers/settings/language_controller.dart';
 import 'package:plate_perks/core/controllers/starter/food_controller.dart';
 import 'package:plate_perks/core/controllers/starter/restaurant_controller.dart';
 import 'package:plate_perks/end_point.dart';
@@ -22,6 +23,7 @@ class StarterPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<FavoriteController>().getFavorites();
     Get.put(CartController(cartRepo: Get.find(), appServices: Get.find(), ));
+    Get.lazyPut(()=> CartController(cartRepo: Get.find(), appServices: Get.find()));
 
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
@@ -85,7 +87,7 @@ class StarterPoint extends StatelessWidget {
           GetBuilder<RestaurantController>(builder: (controller){
             return Container(
               height: AppDimensions.getHeight(295),
-              margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+              margin: EdgeInsetsDirectional.only(start: AppDimensions.getWidth(AppColors.kDefaultPadding)),
               child: ListView.separated(
                   itemCount: controller.restaurant.length,
                   scrollDirection: Axis.horizontal,
@@ -115,13 +117,15 @@ class StarterPoint extends StatelessWidget {
                   init: Get.find<FavoriteController>(),
                   builder: (favController){
                     return Container(
-                    height: AppDimensions.getHeight(280),
+                    height: AppDimensions.getHeight(300),
                     color: Colors.transparent,
-                    margin: EdgeInsets.only(left: AppDimensions.getWidth(AppColors.kDefaultPadding)),
+                    margin: EdgeInsetsDirectional.only(start: AppDimensions.getWidth(AppColors.kDefaultPadding)),
                     child: ListView.separated(
                         itemCount: controller.food.length,
                         scrollDirection: Axis.horizontal,
                         physics: const BouncingScrollPhysics(),
+
+                        padding: EdgeInsetsDirectional.only(bottom: AppDimensions.getHeight(AppColors.kDefaultPadding)),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           bool isFavorite = favController.favoritesMap[controller.food[index].id.toString()] == true ? true : false;
@@ -145,7 +149,7 @@ class StarterPoint extends StatelessWidget {
           }),
 
 
-          SizedBox(height: AppDimensions.getHeight(20),),
+          SizedBox(height: AppDimensions.getHeight(10),),
 
           // SingleChildScrollView(
           //   scrollDirection: Axis.horizontal,

@@ -15,6 +15,7 @@ import 'package:plate_perks/core/controllers/settings/language_controller.dart';
 import 'package:plate_perks/core/controllers/starter/search_controller.dart';
 import 'package:plate_perks/core/dependencies/api_helper.dart';
 import 'package:plate_perks/core/repositories/auth/login_repository.dart';
+import 'package:plate_perks/core/repositories/auth/sign_up_repository.dart';
 import 'package:plate_perks/core/repositories/features/cart_repo.dart';
 import 'package:plate_perks/core/repositories/features/favorite_repo.dart';
 import 'package:plate_perks/core/repositories/features/order_repository.dart';
@@ -28,7 +29,7 @@ import 'package:plate_perks/core/repositories/search_repository.dart';
 import 'app_services.dart';
 
 initHelper()async{
-  Get.putAsync(() => AppServices().init());
+  await Get.putAsync(() => AppServices().init());
 
   Get.lazyPut(() => MainPageController());
 
@@ -65,6 +66,9 @@ initHelper()async{
   Get.lazyPut(()=>LoginRepo(
     apiHelper: Get.find(),
   ));
+  Get.lazyPut(()=>SignUpRepo(
+    apiHelper: Get.find(),
+  ));
 
   /// ************************** Settings Repositories ***********************
   Get.lazyPut(()=>ProfileRepo(
@@ -93,7 +97,7 @@ initHelper()async{
 
 
   /// ************************** Auth Controllers *************************
-  Get.lazyPut(() => SignupController());
+  Get.lazyPut(() => SignupController(signupRepo: Get.find()));
   Get.lazyPut(() => LoginController(loginRepo: Get.find(), appServices: Get.find(), ));
   Get.lazyPut(() => ForgotPasswordController());
   Get.lazyPut(() => VerifyCodeController());

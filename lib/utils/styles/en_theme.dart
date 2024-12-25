@@ -38,6 +38,11 @@ ThemeData get enTheme => ThemeData(
             fontSize: 14
         ),
     ),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionColor: AppColors.kPrimaryColor,
+      cursorColor: AppColors.kPrimaryColor,
+      selectionHandleColor: AppColors.kPrimaryColor,
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,

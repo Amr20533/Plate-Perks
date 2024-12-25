@@ -11,9 +11,17 @@ class OrderRepo extends GetxService{
       AppEndPoint.getFoodOrders,
     );
   }
-  Future<Response> addFoodOrder({required int id,required Map<String, dynamic> body})async{
+
+  Future<Response> addFoodOrder({required Map<String, dynamic> body})async{
     return await apiHelper.postData(
-        '${AppEndPoint.makeFoodOrder}/$id',
+        AppEndPoint.makeFoodOrder,
+        body
+    );
+  }
+
+  Future<Response> foodCheckout({required int id,required Map<String, dynamic> body})async{
+    return await apiHelper.postData(
+        '${AppEndPoint.foodCheckout}/$id',
         body
     );
   }

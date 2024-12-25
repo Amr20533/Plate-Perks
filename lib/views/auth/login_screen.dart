@@ -60,7 +60,6 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
   }
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => LoginController(loginRepo: Get.find(), appServices: Get.find(), ));
     return Scaffold(
       body: GetBuilder<LoginController>(builder: (login){
         return SafeArea(
@@ -68,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CustomAuthHeader(title: '19'.tr,),
+                  CustomAuthHeader(title: '22'.tr,),
 
 
                   SlideTransition(
@@ -105,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
                             password: login.password.text
                         );
                         login.userLogin(loginModel).then((response) {
-                          Get.toNamed(AppRoutes.main);
+                          Get.offNamed(AppRoutes.main);
                           debugPrint('${response.access}');
                         }).catchError((error) {
                           debugPrint('Login failed: $error');
@@ -121,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen>with TickerProviderStateMixin{
                       children: [
                         Text('17'.tr),
                         TextButton(onPressed: (){
-
+                          Get.offNamed(AppRoutes.signup);
                         },
                             child: Text('18'.tr, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: AppColors.kPrimaryColor),)),
                       ],

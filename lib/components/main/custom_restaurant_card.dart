@@ -37,13 +37,14 @@ class CustomRestaurantCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: AppDimensions.getWidth(190),
+                height: AppDimensions.getWidth(188),
                 width: AppDimensions.getWidth(170),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimensions.getWidth(12)),
                     image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(image))
+                        image: NetworkImage(image),
+                    )
                 ),
               ),
               Padding(
@@ -70,7 +71,7 @@ class CustomRestaurantCard extends StatelessWidget {
           height: AppDimensions.getHeight(30),
           width: AppDimensions.getWidth(60),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(topRight: Radius.circular(AppDimensions.getWidth(12)), bottomLeft: Radius.circular(AppDimensions.getWidth(12))),
+              borderRadius: BorderRadiusDirectional.only(topEnd: Radius.circular(AppDimensions.getWidth(12)), bottomStart: Radius.circular(AppDimensions.getWidth(12))),
               color: AppColors.kLightBlackColor,
               boxShadow: [
                 BoxShadow(

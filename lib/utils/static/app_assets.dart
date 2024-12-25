@@ -2,6 +2,7 @@ class AppAssets{
   static const String imagePath = 'assets/images';
   static const String navBarPath = 'assets/icons/nav_bar';
   static const String iconPath = 'assets/icons';
+  static const String lottiePath = 'assets/lottie';
 
 
   static const String offer = '$imagePath/offer.png';
@@ -38,5 +39,8 @@ class AppAssets{
   static const String emptyCart = '$imagePath/empty_cart.svg';
 /// ********************************** Favorites *******************************************
   static const String emptyFavorite = '$imagePath/empty_favorite.svg';
+
+  /// ********************************** Order *******************************************
+  static const String success = '$lottiePath/success.json';
 
 }

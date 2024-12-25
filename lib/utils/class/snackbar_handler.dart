@@ -17,7 +17,7 @@ class SnackBarHandler{
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Successfully place order", style: Theme.of(customContext).textTheme.titleMedium!.copyWith(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),),
+                Text("place_order".tr, style: Theme.of(customContext).textTheme.titleMedium!.copyWith(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),),
                 CustomRoundedButton(onTap: (){
                   Get.toNamed(AppRoutes.cart);
                 },
@@ -25,7 +25,7 @@ class SnackBarHandler{
                   height: AppDimensions.getHeight(31),
                   bgColor: Colors.white,
                   textColor: AppColors.kPrimaryColor,
-                  title: "Cart",
+                  title: "cart".tr,
                 ),
               ],
             ),
